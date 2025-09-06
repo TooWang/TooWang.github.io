@@ -1,4 +1,5 @@
 <html>
+    <link rel="icon" href="./icon.ico" type="image/x-icon" />
 <head>
     <style>
         body {
@@ -145,7 +146,6 @@
 
 <picture>
     <div style="text-align:center;">
-        
         <source media="(min_width: 320px)" />
         <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/main_1_e8b3bde4ba8be8a68fe58987-5.png"> 
         <style>
@@ -224,6 +224,7 @@
 
 <picture>
     <div class="main_img" style="text-align:center;">
+        
         <button class="nhmmm">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeaZhGhVZMj4fA8VuFCCsYm8w1-wm5qoe7_glGJMRec8pUMlA/viewform" class="nhmmm">
             <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/linktoform_signup-2.png">
@@ -321,13 +322,13 @@
     <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/linktomenu.png">
 </div>
 
-<div class="fab_discord">
+<div class="fab_discord" style="align-items: right;">
     <a href="https://discord.gg/fCSyMCvw52">
         <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/linktodiscord-1.png">
     </a>
 </div>
 
-<div class="fab_form">
+<div class="fab_form" style="align-items: right;">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeaZhGhVZMj4fA8VuFCCsYm8w1-wm5qoe7_glGJMRec8pUMlA/viewform?usp=header">
         <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/linktoform-1.png">
     </a>
@@ -339,7 +340,7 @@
     </a>
 </div>
 
-<div class="fab_other">
+<div class="fab_other" style="align-items: right;">
     <a href="nhmmm.html">
         <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/linktonhmmm.png">
     </a>
@@ -377,16 +378,28 @@
         fab.style.visibility = "hidden";
     });
 
-
-    const userAgent = navigator.userAgent;
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(userAgent);
-    let deviceType = true;         // Default to desktop
-
-    if (isMobile) {
-        deviceType = false;        // Mobile device
-    } else {
-        deviceType = true;         // Desktop device
+    
+    function grtTime() {
+        let isDuringTime = function(beginTime, endTime) {
+            var currentTime = new Date(),
+                begin = new Date(beginTime),
+                end = new Date(endTime);
+            if (currentTime >= begin && currentTime <= end) {
+                return true;
+            }
+            return false;
+        };
     }
+    
+
+    // Add click event listener to menu button
+    menuBtn.addEventListener('click', toggleMenu);
+
+    // Initially hide all FABs and set correct image
+    fabs.forEach(fab => {
+        fab.style.opacity = "0";
+        fab.style.visibility = "hidden";
+    });
 </script>
 
 </body>
