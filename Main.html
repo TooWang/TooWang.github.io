@@ -16,6 +16,8 @@
             z-index: 9999;
             overflow: hidden;  /* Add this to clip the image */
             opacity: 0;
+            border-radius: 50px;
+            box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.75);
             transition: opacity 0.3s ease-in-out;
             visibility: hidden;
         }
@@ -26,29 +28,29 @@
         .fab_form img {
             width: 100%;
             height: 100%;
+            align-items: right;
             object-fit: cover;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
         }
 
         /* Mobile sizes */
         @media (max-width: 575px) and (min-width: 320px) {
             .fab_score {
-                right: 10px;
-                bottom: 120px;
-                width: 48px;
-                height: 48px;
+                right: 2vw;
+                bottom: 18.5vw;
+                height: 5vw;
+                width: auto;
             }
             .fab_discord {
-                right: 10px;
-                bottom: 65px;
-                width: 48px;
-                height: 48px;
+                right: 2vw;
+                bottom: 13vw;
+                height: 5vw;
+                width: auto;
             }
             .fab_form {
-                right: 10px;
-                bottom: 10px;
-                width: 48px;
-                height: 48px;
+                right: 2vw;
+                bottom: 7.5vw;
+                height: 5vw;
+                width: auto;
             }
         }
 
@@ -57,20 +59,20 @@
             .fab_score {
                 right: 3vw;
                 bottom: 15vw;
-                width: 5vw;
-                height: 5vw;
+                height: 3.5vw;
+                width: auto;
             }
             .fab_discord {
                 right: 3vw;
-                bottom: 9vw;
-                width: 5vw;
-                height: 5vw;
+                bottom: 11vw;
+                height: 3.5vw;
+                width: auto;
             }
             .fab_form {
                 right: 3vw;
-                bottom: 3vw;
-                width:  5vw;
-                height: 5vw;
+                bottom: 7vw;
+                height: 3.5vw;
+                width: auto;
             }
         }
 
@@ -78,29 +80,51 @@
             opacity: 1;
             visibility: visible;
         }
-
-        .fab signup {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-decoration: none;
-            color: transparent;
-            font-size: 16px;
-            font-weight: bold;
-            padding: 10px 20px;
+        
+        .fab_menu {
+            position: fixed;
+            border: none;
+            cursor: pointer;
+            z-index: 9999;
+            overflow: hidden;  /* Add this to clip the image */
+            border-radius: 5vw;
+            box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.75);
+            visibility: visible;
+        }
+        .fab_menu img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Mobile sizes */
+        @media (max-width: 575px) and (min-width: 320px) {
+            .fab_menu {
+                right: 2vw;
+                bottom: 2vw;
+                height: 5vw;
+                width: auto;
+            }
+        }
+        /* Desktop sizes */
+        @media (min-width: 576px) {
+            .fab_menu {
+                right: 3vw;
+                bottom: 3vw;
+                height: 3.5vw;
+                width: auto;
+            }
         }
         
     </style>
 </head>
 
-<body background="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/bg.png" 
+<body background="./BG.png" 
     style="background-size: cover; background-attachment: fixed; background-repeat: no-repeat; background-position: center;">
 
 
 <picture>
     <div style="text-align:center; width: 100%;">
-        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/main_0_kv-3.png" 
+        <img src="./Main_0_KV.png" 
             style="width: 100%" >
     </div>
 </picture>
@@ -109,7 +133,7 @@
     <div style="text-align:center;">
         
         <source media="(min_width: 320px)" />
-        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/main_1_e8b3bde4ba8be8a68fe58987-3.png"> 
+        <img src="./Main_1_賽事規則.png"> 
         <style>
             @media (max-width: 575px) and (min-width: 320px) {
                 img {
@@ -130,7 +154,7 @@
 <picture>
     <div style="text-align:center;">
         <source media="(min_width: 320px)" />
-        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/main_2_e6b3a8e6848fe4ba8be9a085-3.png" > 
+        <img src="./Main_2_注意事項.png" > 
         <style>
             @media (max-width: 575px) and (min-width: 320px) {
                 img {
@@ -149,7 +173,7 @@
 <picture>
     <div style="text-align:center;">
         <source media="(min_width: 320px)" />
-        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/main_3_e8b3bde4ba8be78d8ee58bb5-2.png">
+        <img src="./Main_3_賽事獎勵.png">
     <style>
             @media (max-width: 575px) and (min-width: 320px) {
                 img {
@@ -168,7 +192,7 @@
 <picture>
     <div style="text-align:center;">
         <source media="(min_width: 320px)" />
-        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/main_4_e6af94e8b3bde8a18ce7a88b-2.png">
+        <img src="./Main_4_比賽行程.png">
     <style>
             @media (max-width: 575px) and (min-width: 320px) {
                 img {
@@ -188,10 +212,10 @@
     <div class="main_img" style="text-align:center;">
         <button class="nhmmm">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeaZhGhVZMj4fA8VuFCCsYm8w1-wm5qoe7_glGJMRec8pUMlA/viewform" class="nhmmm">
-            <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/linktoform_signup-1.png">
+            <img src="./LinkToForm_SignUp.png">
         </a></button>
         <source media="(min_width: 320px)" />
-        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/main_5_e5a0b1e5908de696b9e5bc8f-4.png" > 
+        <img src="./Main_5_報名方式.png" > 
         <style>
             .main_img {
                 position: relative;
@@ -254,6 +278,8 @@
                 height: auto;
                 display: block;
             }
+
+
         </style>
     </div>
 </picture>
@@ -261,7 +287,7 @@
 <picture>
     <div style="text-align:center;">
         <source media="(min_width: 320px)" />
-        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/bottom_logo.png">
+        <img src="./bottom_logo.png">
     <style>
             @media (max-width: 575px) and (min-width: 320px) {
                 img {
@@ -275,57 +301,62 @@
             }
         </style>
     </div>
+</picture>
+
+<div class="fab_menu">
+    <img src="./LinkToMenu.png">
+</div>
 
 <div class="fab_discord">
     <a href="https://discord.gg/fCSyMCvw52">
-        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/linktodiscord.png">
+        <img src="./linktodiscord.png">
     </a>
 </div>
 
 <div class="fab_form">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeaZhGhVZMj4fA8VuFCCsYm8w1-wm5qoe7_glGJMRec8pUMlA/viewform?usp=header">
-        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/linktoform.png">
+        <img src="./linktoform.png">
     </a>
 </div>
 
-<div class="fab_score">
-    <a href="C:\Users\lcw05\SynologyDrive\文件\私人\活動工程檔\2025_寄術杯#4\規則圖\Website\TooWang.github.ioScoreCalculate.html">
-        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/linktoscore.png">
+<div class="fab_score" style="align-items: right;">
+    <a href="ScoreCalculate.html">
+        <img src="./LinkToScore.png">
     </a>
 </div>
 
 <script>
-    // Get all FAB elements
     const fabs = document.querySelectorAll('.fab_score, .fab_discord, .fab_form');
+    const menuBtn = document.querySelector('.fab_menu');
+    let isMenuOpen = false;
 
-    // Function to check scroll position and toggle FABs
-    function toggleFabs() {
-        // Get total scrollable height
-        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        // Get current scroll position
-        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    
-        // Use matchMedia to check if the device is mobile
-        if (window.matchMedia('(max-width: 575px) and (min-width: 320px)').matches) {
-            if (scrollPosition > window.innerWidth) {
-                fabs.forEach(fab => fab.classList.add('show-fab'));
-            } else {
-                fabs.forEach(fab => fab.classList.remove('show-fab'));
-            }
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+            // Show FABs when menu is clicked
+            fabs.forEach(fab => {
+                fab.style.opacity = "1";
+                fab.style.visibility = "visible";
+            });
         } else {
-            if (scrollPosition > window.innerHeight) {
-                fabs.forEach(fab => fab.classList.add('show-fab'));
-            } else {
-                fabs.forEach(fab => fab.classList.remove('show-fab'));
-            }
+            // Hide FABs when menu is clicked again
+            fabs.forEach(fab => {
+                fab.style.opacity = "0";
+                fab.style.visibility = "hidden";
+            });
         }
     }
 
-    // Add scroll event listener
-    window.addEventListener('scroll', toggleFabs);
-    
-    // Initial check
-    toggleFabs();
+    // Add click event listener to menu button
+    menuBtn.addEventListener('click', toggleMenu);
+
+    // Initially hide all FABs
+    fabs.forEach(fab => {
+        fab.style.opacity = "0" ;
+        fab.style.visibility = "hidden";
+    });
 </script>
+
 </body>
 </html>
