@@ -33,7 +33,7 @@
         }
 
         /* Mobile sizes */
-        @media (max-width: 575px) and (min-width: 320px) {
+        @media (max-width: 992px) and (min-width: 320px) {
             .fab_score {
                 right: 2vw;
                 bottom: 18.5vw;
@@ -55,7 +55,7 @@
         }
 
         /* Desktop sizes */
-        @media (min-width: 576px) {
+        @media (min-width: 993px) {
             .fab_score {
                 right: 3vw;
                 bottom: 15vw;
@@ -97,7 +97,7 @@
             object-fit: cover;
         }
         /* Mobile sizes */
-        @media (max-width: 575px) and (min-width: 320px) {
+        @media (max-width: 992px) and (min-width: 320px) {
             .fab_menu {
                 right: 2vw;
                 bottom: 2vw;
@@ -106,7 +106,7 @@
             }
         }
         /* Desktop sizes */
-        @media (min-width: 576px) {
+        @media (min-width: 993px) {
             .fab_menu {
                 right: 3vw;
                 bottom: 3vw;
@@ -287,14 +287,14 @@
 <picture>
     <div style="text-align:center;">
         <source media="(min_width: 320px)" />
-        <img src="./Bottom_Logo.png">
+        <img src="./bottom_logo.png">
     <style>
-            @media (max-width: 575px) and (min-width: 320px) {
+            @media (max-width: 992px) and (min-width: 320px) {
                 img {
                     width: 100%;
                 }
             }
-            @media (min-width: 576px) {
+            @media (min-width: 993px) {
                 img {
                     width: 60%;
                 }
@@ -356,8 +356,18 @@
         fab.style.opacity = "0" ;
         fab.style.visibility = "hidden";
     });
+
+
+    const userAgent = navigator.userAgent;
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(userAgent);
+    let deviceType = true;         // Default to desktop
+
+    if (isMobile) {
+        deviceType = false;        // Mobile device
+    } else {
+        deviceType = true;         // Desktop device
+    }
 </script>
 
 </body>
-
 </html>
