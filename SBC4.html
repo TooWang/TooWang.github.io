@@ -9,7 +9,8 @@
         /* Base styles for all FABs */
         .fab_score,
         .fab_discord,
-        .fab_form {
+        .fab_form,
+        .fab_other {
             position: fixed;
             border: none;
             cursor: pointer;
@@ -25,7 +26,8 @@
         /* Style for images inside FABs */
         .fab_score img,
         .fab_discord img,
-        .fab_form img {
+        .fab_form img
+        .fab_other img {
             width: 100%;
             height: 100%;
             align-items: right;
@@ -34,6 +36,12 @@
 
         /* Mobile sizes */
         @media (max-width: 992px) and (min-width: 320px) {
+            .fab_other {
+                right: 2vw;
+                bottom: 36vw;
+                height: 8vw;
+                width: auto;
+            }
             .fab_score {
                 right: 2vw;
                 bottom: 27.5vw;
@@ -56,6 +64,12 @@
 
         /* Desktop sizes */
         @media (min-width: 993px) {
+            .fab_other {
+                right: 3vw;
+                bottom: 19vw;
+                height: 3.5vw;
+                width: auto;
+            }
             .fab_score {
                 right: 3vw;
                 bottom: 15vw;
@@ -325,8 +339,14 @@
     </a>
 </div>
 
+<div class="fab_other">
+    <a href="nhmmm.html">
+        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/linktonhmmm.png">
+    </a>
+</div>
+
 <script>
-    const fabs = document.querySelectorAll('.fab_score, .fab_discord, .fab_form');
+    const fabs = document.querySelectorAll('.fab_score, .fab_discord, .fab_form, .fab_other');
     const menuBtn = document.querySelector('.fab_menu');
     let isMenuOpen = false;
 
