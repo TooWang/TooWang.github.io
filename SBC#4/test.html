@@ -1,0 +1,3160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKCRML31CY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RKCRML31CY');
+    </script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" href="ChongXiSmallSeal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="TofuFont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preload" as="video" href="Lens.webm" type="video/webm">
+    <link rel="preload" as="video" href="Jie-Lens.webm" type="video/webm">
+    <title>LensArk</title>
+    <style>
+      @font-face {
+        font-family: 'Chong Xi Small Seal';
+        src: url('ChongXiSmallSeal.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'TofuFont';
+        src: url('TofuFont.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'HarmonyOS Sans SC';
+        src: url('fonts/HarmonyOS_Sans_SC_Thin.woff2') format('woff2');
+        font-weight: 100;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'HarmonyOS Sans SC';
+        src: url('fonts/HarmonyOS_Sans_SC_Light.woff2') format('woff2');
+        font-weight: 300;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'HarmonyOS Sans SC';
+        src: url('fonts/HarmonyOS_Sans_SC_Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'HarmonyOS Sans SC';
+        src: url('fonts/HarmonyOS_Sans_SC_Medium.woff2') format('woff2');
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'HarmonyOS Sans SC';
+        src: url('fonts/HarmonyOS_Sans_SC_Bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'HarmonyOS Sans SC';
+        src: url('fonts/HarmonyOS_Sans_SC_Black.woff2') format('woff2');
+        font-weight: 900;
+        font-style: normal;
+      }
+
+
+      body.jie-garden-theme * {
+        font-family: "Source Han Serif CN", "Noto Serif SC",
+          "Source Han Serif SC", serif !important;
+        --primary-color: #f8679b;
+      }
+
+      body.jie-garden-theme .filters ul {
+        background: url("Jie_Under.png") center/contain no-repeat;
+      }
+
+      body.jie-garden-theme.font-pulse * {
+        font-family: 'Chong Xi Small Seal', 'TofuFont' !important;
+      }
+
+      body.jie-garden-theme .quote-wrapper.reveal {
+        background-image: url("jie_activity_bg.png") !important;
+      }
+
+      body.jie-garden-theme .wrapper::before {
+        background: url("jie-bg.png") center/cover no-repeat;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(232, 234, 240);
+        border: 1px solid rgba(0, 39, 255, 0.5);
+        border-radius: 8px;
+        box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(100, 100, 100, 0.6);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "HarmonyOS Sans SC", Arial, Helvetica, sans-serif;
+        --primary-color: #2c4ed0;
+      }
+      body {
+        background-color: #ffffff;
+      }
+
+      input[type="checkbox"] {
+        display: none;
+      }
+      .menu-btn {
+        position: fixed;
+        z-index: 1002;
+        right: 20px;
+        top: 20px;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+        transition: filter 0.3s ease, transform 0.3s ease, opacity 1.2s,
+          transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .menu-btn:hover {
+        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
+        transform: translateY(-2px);
+      }
+      .menu-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .menu-btn .menu-icon {
+        display: block;
+      }
+      .menu-btn .close-icon {
+        display: none;
+      }
+      #active:checked + .menu-btn .menu-icon {
+        display: none;
+      }
+      #active:checked + .menu-btn .close-icon {
+        display: block;
+      }
+
+      .wrapper {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100%;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: all 0.6s ease-in-out;
+        z-index: 1001;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .wrapper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("laterano_bg.png") center/cover no-repeat;
+        opacity: 0.75;
+        mix-blend-mode: overlay;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .wrapped::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.8),
+          transparent,
+          rgba(255, 255, 255, 0.3)
+        );
+      }
+      #active:checked ~ .wrapper {
+        right: 0;
+      }
+      .wrapper ul {
+        list-style: none;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
+      .wrapper ul li {
+        margin: 15px 0;
+      }
+      .wrapper ul li a {
+        text-decoration: none;
+        font-size: 30px;
+        font-weight: 500;
+        padding: 10px 30px;
+        color: black;
+        font-weight: 700;
+        letter-spacing: -0.1rem;
+        border-radius: 50px;
+        display: inline-block;
+        opacity: 0;
+        transform: translateX(100px);
+        transition: opacity 1.2s,
+          transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+      #active:checked ~ .wrapper ul li a {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.6s;
+      }
+      .wrapper ul li a:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50px;
+        background: var(--primary-color);
+        z-index: -1;
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+      }
+      .wrapper ul li a:hover:after {
+        transform: scaleY(1);
+      }
+      .wrapper ul li a:hover {
+        color: white;
+      }
+
+      .lang-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1003;
+        transition: filter 0.3s ease, transform 0.3s ease, opacity 1.2s,
+          transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none;
+      }
+      .lang-toggle:hover {
+        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
+        transform: translateY(-2px);
+      }
+      .lang-toggle img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .hero {
+        position: relative;
+        color: black;
+        text-align: center;
+        padding: 380px 20px 100px;
+        overflow: hidden;
+        z-index: 0;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .hero::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--hero-bg-url, "laterano_wallpaper.png") center/cover
+          no-repeat;
+        background-attachment: fixed;
+        z-index: -2;
+        pointer-events: none;
+        opacity: var(--hero-after-opacity, 1);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        transition: opacity 0.3s ease-out;
+        pointer-events: none;
+      }
+
+      .hero-fadeout {
+        height: 200px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 0%,
+          #fff 100%
+        );
+        margin-top: -100px;
+        z-index: 1;
+        position: relative;
+      }
+
+      .quote-fadeout {
+        height: 200px;
+        background: linear-gradient(
+          to top,
+          rgba(255, 255, 255, 0) 0%,
+          #fff 100%
+        );
+        z-index: 1;
+        position: relative;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+      }
+
+      .hero h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        font-weight: 900;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .container {
+        background-color: white;
+        max-width: 1100px;
+        margin: auto;
+        padding: 110px 20px 40px;
+      }
+      section {
+        margin: 100px 0;
+        opacity: 0;
+        filter: blur(6px);
+        transform: translateY(50px);
+        transition: opacity 0.8s ease-out, filter 0.8s ease-out,
+          transform 0.8s ease-out;
+        will-change: opacity, filter, transform;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      section.reveal {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        letter-spacing: -0.1rem;
+        font-weight: 700;
+      }
+      p {
+        font-size: 1.1rem;
+        color: #555;
+        font-weight: 400;
+      }
+      .project {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      .about-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        align-items: center;
+        gap: 40px;
+      }
+
+      @media (max-width: 800px) {
+        .about-wrapper {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto;
+        }
+
+        .box {
+          justify-self: center;
+        }
+      }
+
+      .about-text {
+        flex: 1 1 340px;
+      }
+
+      .box {
+        position: relative;
+        height: 400px;
+        width: 400px;
+        clip-path: inset(50%);
+        transition: clip-path 1.2s;
+        flex: 0 0 400px;
+        overflow: hidden;
+      }
+
+      .box img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.1);
+        transition: transform 1s ease-in-out;
+      }
+
+      .box img,
+      .box video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+      }
+
+      .hover-video {
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        pointer-events: none;
+      }
+
+      .box.hovering .hover-video,
+      .box.video-playing .hover-video {
+        opacity: 1;
+      }
+
+      .box.show {
+        transition-delay: 0.6s;
+        clip-path: inset(0% round 0%);
+      }
+
+      .box.show img {
+        transform: scale(1);
+      }
+
+      .floating-text {
+        font-size: 1rem;
+        line-height: 0.8rem;
+      }
+
+      .floating-text span {
+        display: block;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .floating-text.reveal span:nth-child(1) {
+        transition-delay: 1s;
+      }
+      .floating-text.reveal span:nth-child(2) {
+        transition-delay: 2s;
+      }
+      .floating-text.reveal span:nth-child(3) {
+        transition-delay: 3s;
+      }
+      .floating-text.reveal span:nth-child(4) {
+        transition-delay: 4s;
+      }
+      .floating-text.reveal span:nth-child(5) {
+        transition-delay: 5s;
+      }
+
+      .floating-text.reveal span {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .quote-wrapper {
+        padding-top: 1000px;
+        background: transparent;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: background-image 0s, background-color 0.8s ease-in,
+          filter 1.2s ease, opacity 1.2s ease;
+        opacity: 0;
+        filter: blur(6px);
+
+        padding: 40px 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        min-height: 300px;
+        width: 100%;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .quote-wrapper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          white 0%,
+          transparent 70%,
+          white 100%
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .quote-wrapper.reveal {
+        background-image: url("activity-bg.png");
+        opacity: 1;
+        filter: blur(0);
+      }
+
+      .quoted {
+        position: relative;
+        display: inline-block;
+        padding: 40px 60px;
+        font-style: italic;
+        text-shadow: 0 0 4px white, 0 0 8px white, 0 0 12px white,
+          0 0 16px white, 0 0 24px white, 0 0 32px white,
+          0 0 48px rgba(255, 255, 255, 0.7), 0 0 64px rgba(255, 255, 255, 0.5);
+      }
+
+      .quoted::before,
+      .quoted::after {
+        position: absolute;
+        font-size: 4rem;
+        color: var(--primary-color);
+        font-family: serif;
+        line-height: 1;
+        pointer-events: none;
+        font-style: normal;
+      }
+
+      .quoted::before {
+        content: "\201C";
+        font-size: 4rem;
+        font-family: Georgia, serif;
+        position: absolute;
+        top: -30px;
+        left: -40px;
+      }
+
+      .quoted::after {
+        content: "\201D";
+        font-size: 4rem;
+        font-family: Georgia, serif;
+        position: absolute;
+        bottom: -30px;
+        right: -40px;
+      }
+
+      .projects-gallery {
+        margin-top: 80px;
+      }
+
+      .filters {
+        width: 100%;
+        text-align: center;
+        padding: 20px 0 35px;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: default;
+      }
+      .filters ul {
+        list-style: none;
+        margin: 0 50px;
+        padding: 45px 10px;
+        border-radius: 30px;
+        background: url("Under.png") center/contain no-repeat;
+      }
+      .filters li {
+        display: inline-block;
+        padding: 10px 10px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .filters li a {
+        color: #b6b6b6;
+        text-decoration: none;
+      }
+      .filters li:hover a {
+        color: #fff;
+      }
+      .filters li.active a {
+        color: #fff;
+      }
+
+      #container {
+        margin: auto;
+      }
+      .grid-item {
+        position: relative;
+        width: 300px;
+        height: 259px;
+        border: 0.0625rem solid var(--primary-color);
+        margin-left: 10px;
+        margin-bottom: 10px;
+        display: inline-block;
+        overflow: visible;
+      }
+
+      .grid-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: brightness(0.5);
+        transition: 0.4s;
+      }
+
+      .corner-dot {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background-color: var(--primary-color);
+        z-index: 5;
+      }
+
+      .corner-dot.top-left {
+        top: -4px;
+        left: -4px;
+      }
+
+      .corner-dot.top-right {
+        top: -4px;
+        right: -4px;
+      }
+
+      .corner-dot.bottom-left {
+        bottom: -4px;
+        left: -4px;
+      }
+
+      .corner-dot.bottom-right {
+        bottom: -4px;
+        right: -4px;
+      }
+
+      .grid-item:hover img {
+        filter: brightness(1);
+      }
+
+      .overlay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        color: #fff;
+        font-size: 20px;
+        opacity: 0;
+        transition: 0.5s ease;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 6px rgba(0, 0, 0, 0.35);
+        font-weight: 500;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: default;
+      }
+      .overlay-desc {
+        color: #b1b1b1;
+        font-size: 14px;
+        margin-top: 6px;
+        opacity: 0.8;
+        line-height: 1.3em;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 6px rgba(0, 0, 0, 0.35);
+      }
+      .grid-item:hover .overlay {
+        opacity: 1;
+      }
+
+      .isotope-pager a {
+        display: inline-block;
+        width: 50px;
+        margin: 6px 1px;
+        line-height: 31px;
+        color: #b6b6b6;
+        font-weight: 600;
+        background: #232323;
+        border: 0.5px solid var(--primary-color);
+        border-radius: 25px;
+        box-shadow: -1px 1px 11px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        transition: 0.3s;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .isotope-pager a:hover {
+        color: #fff;
+        border-color: var(--primary-color);
+      }
+      .isotope-pager a.active {
+        color: white !important;
+        background: var(--primary-color);
+        border: 1px;
+        cursor: default;
+      }
+
+      .isotope-pager a:not(.active):hover {
+        background: #3c3c3c;
+      }
+
+      @media (max-width: 720px) {
+        .grid-item {
+          width: 100%;
+        }
+      }
+
+      select,
+      ::picker(select) {
+        appearance: base-select;
+        font: -webkit-small-control;
+      }
+
+      option::checkmark {
+        display: none;
+      }
+
+      select {
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 0.75rem;
+        transition-duration: 0.25s;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      option {
+        font-size: 1rem;
+        display: grid;
+        grid-template-columns: 2rem auto;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        transition-duration: 0.25s;
+        place-items: initial;
+        align-items: center;
+      }
+
+      option:hover,
+      option:focus-visible {
+        background: #eaeaea;
+      }
+
+      select::picker-icon {
+        display: none;
+      }
+
+      selectedcontent .text {
+        display: none;
+      }
+
+      .arrow {
+        border-left: 0.3rem solid transparent;
+        border-right: 0.3rem solid transparent;
+        border-top: 0.3rem solid;
+      }
+
+      ::picker(select) {
+        border: none;
+        padding: 0.5rem 0;
+        overflow-x: hidden;
+        border-radius: 5px;
+        width: 3.5rem;
+        transition: width 0.5s;
+        min-inline-size: 0;
+        box-shadow: 0px 12.8px 28.8px rgba(0, 0, 0, 0.13),
+          0px 0px 9.2px rgba(0, 0, 0, 0.11);
+      }
+
+      select:has(:popover-open) button {
+        background: lightgray;
+      }
+
+      ::picker(select):hover,
+      select:has(option:focus-visible)::picker(select) {
+        /*  auto width!  */
+        width: calc-size(auto, size + 0.5rem);
+      }
+
+      .music-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .music-btn svg {
+        width: 32px;
+        height: 32px;
+        fill: #333;
+        transition: opacity 0.3s ease;
+      }
+
+      .music-btn.paused svg {
+        opacity: 0.3;
+      }
+      .lens-ark {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .lens-ark img {
+        width: 70px;
+        height: auto;
+        filter: invert(100%);
+        opacity: 0.6;
+      }
+
+      .mfp-fade.mfp-bg {
+        opacity: 0;
+        transition: opacity 0.2s ease-out;
+      }
+      .mfp-fade.mfp-bg.mfp-ready {
+        opacity: 0.8;
+      }
+      .mfp-fade.mfp-bg.mfp-removing {
+        opacity: 0;
+      }
+
+      .mfp-fade .mfp-content {
+        opacity: 0;
+        transition: opacity 0.2s ease-out;
+      }
+      .mfp-fade.mfp-ready .mfp-content {
+        opacity: 1;
+      }
+      .mfp-fade.mfp-removing .mfp-content {
+        opacity: 0;
+      }
+
+      .h2-bg {
+        width: 27%;
+      }
+
+      .social {
+        display: flex;
+        justify-content: center;
+        flex-flow: wrap;
+        gap: 1rem;
+        list-style: none;
+      }
+
+      .social li {
+        position: relative;
+        flex-basis: 4.5rem;
+      }
+
+      .social li::after {
+        position: absolute;
+        content: attr(data-tooltip);
+        inset: -45% auto auto 50%;
+        z-index: -1;
+        translate: -50%;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.875rem;
+        color: #fff;
+        background: var(--bg, #070707);
+        border-radius: 0.25rem;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: inset 0.4s cubic-bezier(0.47, 2, 0.41, 1.5),
+          visibility 0.3s ease-in-out, opacity 0.2s ease-in-out;
+        z-index: 3;
+      }
+
+      .social li:has(a:hover, a:focus-visible)::after {
+        opacity: 1;
+        visibility: visible;
+        inset-block-start: -60%;
+      }
+
+      .social a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1;
+        font-size: 1.75rem;
+        color: #070707;
+        border: 1px solid;
+        border-radius: 100%;
+        text-decoration: none;
+        outline: none;
+        overflow: hidden;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .social a > i {
+        position: relative;
+        z-index: 1;
+      }
+
+      .social a::after {
+        position: absolute;
+        content: "";
+        inset: 100% 0 0;
+        background: var(--bg, #070707);
+        pointer-events: none;
+        transition: inset 0.3s ease-in-out;
+      }
+
+      .social a:hover,
+      .social a:focus-visible {
+        color: #fff;
+      }
+
+      .social a:hover::after,
+      .social a:focus-visible::after {
+        inset-block-start: 0;
+      }
+
+      .social a > img {
+        width: 1.7rem;
+        height: 1.7rem;
+        z-index: 1;
+        transition: filter 0.3s ease;
+      }
+
+      .social a:hover > img,
+      .social a:focus-visible > img {
+        filter: brightness(0) invert(1);
+      }
+
+      @media (max-width: 600px) {
+      html, body {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 100%;
+      }
+
+      .hero {
+        padding: 160px 10px 60px;
+      }
+
+      .hero img {
+        width: 95%;
+        height: auto;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        padding: 0 10px;
+        max-width: 100% !important;
+        word-break: break-word;
+      }
+
+      .container {
+        padding: 20px 10px;
+        width: 100%;
+        width: 90% !important;
+      }
+
+      .about-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .box img,
+      .box video {
+        width: 80%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto;
+      }
+
+      .heading-wrapper h2 {
+        position: static !important;
+        transform: none !important;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+
+      .grid-item {
+        width: 100% !important;
+        margin-left: 0;
+      }
+
+      .filters ul {
+        padding: 10px;
+        background-size: contain;
+        margin: 0;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        text-align: center;
+      }
+
+      p {
+        font-size: 1rem;
+        word-wrap: break-word;
+      }
+
+      .quoted {
+        padding: 20px 10px;
+        font-size: 1rem;
+      }
+
+      .overlay {
+        font-size: 16px;
+        padding: 10px;
+      }
+
+      .overlay-desc {
+        font-size: 12px;
+        margin-top: 4px;
+      }
+
+      pre.floating-text {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.1rem;
+      }
+
+      .quoted::before,
+      .quoted::after {
+        opacity: 0;
+      }
+
+      .filters ul {
+        background: none !important;
+        background-color: var(--primary-color) !important;
+      }
+
+      .h2-bg {
+        opacity: 0;
+      }
+
+    }
+
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" id="active" />
+    <label for="active" class="menu-btn">
+      <img src="Menu.png" alt="Open menu" class="menu-icon" />
+      <img src="Close.png" alt="Close menu" class="close-icon" />
+    </label>
+    <label for="active" class="close"></label>
+    <div class="wrapper">
+      <select style="position: fixed; top: 20px; left: 20px; z-index: 1005">
+        <button>
+          <selectedcontent></selectedcontent>
+          <span class="arrow"></span>
+        </button>
+        <option value="lat-theme">
+          <img src="lat-theme.png" style="height: 24px" />
+          <span class="text" data-lang="en">Laterano</span>
+          <span class="text" data-lang="zh">拉特兰</span>
+        </option>
+        <option value="jie-garden">
+          <img src="jie-garden.png" style="height: 24px" />
+          <span class="text" data-lang="en">Jie Garden</span>
+          <span class="text" data-lang="zh">界园</span>
+        </option>
+      </select>
+      <button
+        class="music-btn"
+        style="position: fixed; bottom: 20px; left: 20px; z-index: 1005"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M3 10v4h4l5 5V5L7 10H3zm13.5 2c0-.83-.67-1.5-1.5-1.5v3c.83 0 1.5-.67 1.5-1.5zm2.5 0c0 2.21-1.79 4-4 4v2c3.31 0 6-2.69 6-6s-2.69-6-6-6v2c2.21 0 4 1.79 4 4z"
+          />
+        </svg>
+      </button>
+      <span class="lens-ark">
+        <img src="lens-ark.png"/>
+      </span>
+      <ul>
+        <span data-lang="en">
+          <li>
+            <a
+              href="#"
+              onclick="document.getElementById('active').checked = false"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#about"
+              onclick="document.getElementById('active').checked = false"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projects"
+              onclick="document.getElementById('active').checked = false"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              onclick="document.getElementById('active').checked = false"
+              >Contact</a
+            >
+          </li>
+        </span>
+        <span data-lang="zh">
+          <li>
+            <a
+              href="#"
+              onclick="document.getElementById('active').checked = false"
+              >主页</a
+            >
+          </li>
+          <li>
+            <a
+              href="#about"
+              onclick="document.getElementById('active').checked = false"
+              >关于</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projects"
+              onclick="document.getElementById('active').checked = false"
+              >项目</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              onclick="document.getElementById('active').checked = false"
+              >联系</a
+            >
+          </li>
+        </span>
+      </ul>
+    </div>
+    <button class="lang-toggle" onclick="toggleLanguage()">
+      <img src="EN.png" />
+    </button>
+
+    <div class="hero" style="margin-bottom: 100px">
+      <span data-lang="en">
+        <img src="Greetings_EN.png" />
+      </span>
+      <span data-lang="zh">
+        <img src="Greetings_CN.png" />
+      </span>
+    </div>
+
+    <div class="hero-fadeout" style="padding-top: 200px"></div>
+
+    <div class="quote-wrapper">
+      <div style="text-align: center" class="quoted">
+        <pre class="floating-text" data-lang="en" data-theme="lat-theme">
+        <span>Beneath an eternal halo, they share joy and glory;</span>
+        <span>Amidst ceaseless gunshots, they fend off pain and darkness.</span>
+        <span>Foreign travelers marvel at the scenery, while returning Messengers silently pray:</span>
+        <span>May supreme grace be bestowed upon us, may eternal redemption descend to us.</span>
+        <span>May you and I, guided by the light, journey ahead to an unknown horizon.</span>
+      </pre>
+        <pre
+          class="floating-text"
+          data-lang="en"
+          data-theme="jie-garden"
+          hidden
+        >
+        <span>At the edge of Baizao City, nestled between mountains and water, visitors once lingered, reluctant to leave.</span>
+        <span>Now, all outsiders have been cleared, and a strict formation stands ready.</span>
+        <span>You open the great gate and gaze toward the mountain peak. The pacification ceremony thus begins.</span>
+      </pre>
+        <pre class="floating-text" data-lang="zh" data-theme="lat-theme">
+        <span>在永恒的光环下，他们共享喜悦与荣耀；</span>
+        <span>在不绝的枪火中，他们抵御苦痛与黑暗。</span>
+        <span>异乡旅人惊叹于风景，归来的信使默默祈祷：</span>
+        <span>愿至高的恩典降临于我们，愿永恒的救赎垂临于我们。</span>
+        <span>愿你我在光的指引下，踏上通往未知地平线的旅途。</span>
+      </pre
+        >
+        <pre
+          class="floating-text"
+          data-lang="zh"
+          data-theme="jie-garden"
+          hidden
+        >
+        <span>百灶城边，依山傍水处，游人流连忘返。</span>
+        <span>如今已清退旁人，严阵以待。</span>
+        <span>你打开大门，眺望山巅，镇抚仪式由此开始。</span>
+      </pre
+        >
+      </div>
+    </div>
+
+    <div class="quote-fadeout" style="padding-top: 200px"></div>
+
+    <div class="container">
+      <section id="about">
+        <div class="about-wrapper">
+          <!-- ===== TEXT ===== -->
+          <span data-lang="en" class="about-text">
+            <span class="heading-wrapper">
+              <img src="h2-bg.png" class="h2-bg" />
+              <h2 style="position: absolute; transform: translate(24%, -130%)">
+                About Me
+              </h2>
+            </span>
+            <p style="padding-top: 10px">
+              I originally started playing Arknights because of W. After reading
+              her event's story, I wanted to play the game. Later, I gradually
+              had a lot of fun playing it. The previous gacha games I played
+              before were "Alchemy Stars", "Guardian Tales" and "Honkai Impact
+              3rd", but the first two were too easy for me to get tired of, and
+              "Honkai Impact 3rd" felt too grindy for me.
+            </p>
+            <p style="padding-top: 3px">
+              Then, I started enjoying playing Arknights, which was the middle
+              ground of the two. It wasn't too demanding because there were
+              guides on how to clear the stages, and it was also relatively
+              interesting with the new stage mechanics introduced with every
+              event.
+            </p>
+            <p style="padding-top: 3px">
+              Although, I do regret only starting to play Contingency Contract
+              around the end of its first season, because I thought that the
+              gamemode was too difficult.
+            </p>
+          </span>
+          <span data-lang="zh" class="about-text">
+            <span class="heading-wrapper">
+              <img src="h2-bg.png" class="h2-bg" />
+              <h2 style="position: absolute; transform: translate(35%, -130%)">
+                关于我
+              </h2>
+            </span>
+            <p style="padding-top: 10px">
+              我最开始会玩明日方舟是因为W，看了她的活动剧情之后就想玩这款游戏。后来自己也慢慢玩得很开心。之前玩过的抽卡游戏有《白夜极光》、《守望传说》和《崩坏3》，但前两个对我来说太容易腻了，而《崩坏3》又太肝了。
+            </p>
+            <p style="padding-top: 3px">
+              然后就开始喜欢上明日方舟，因为它刚好介于两者之间。它不会太肝，因为有很多关卡都有攻略可以参考；而且每次活动都会有新的机制，玩起来也挺有趣的。
+            </p>
+            <p style="padding-top: 3px">
+              不过我确实有点后悔自己在第一季快结束时才开始玩危机合约，因为当时觉得这个模式太难了。
+            </p>
+          </span>
+
+          <!-- ===== IMAGE BOX ===== -->
+          <div class="box">
+            <!-- replace with your own picture -->
+            <img src="Lens.png" />
+            <video
+              class="hover-video"
+              src="Lens.webm"
+              muted
+              playsinline
+            ></video>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects-gallery">
+        <span data-lang="en">
+          <img src="h2-bg.png" class="h2-bg" style="width: 16%" />
+          <h2 style="position: absolute; transform: translate(29%, -130%)">
+            Projects
+          </h2>
+        </span>
+        <span data-lang="zh">
+          <img src="h2-bg.png" class="h2-bg" style="width: 16%" />
+          <h2 style="position: absolute; transform: translate(53%, -130%)">
+            项目
+          </h2>
+        </span>
+
+        <!-- filter buttons -->
+        <div class="filters filter-button-group">
+          <ul>
+            <span data-lang="en">
+              <li class="active" data-filter="*">
+                <a href="javascript:void(0);">All</a>
+              </li>
+              <li data-filter="Infographic">
+                <a href="javascript:void(0);">Infographic</a>
+              </li>
+              <li data-filter="Thumbnail">
+                <a href="javascript:void(0);">Thumbnail</a>
+              </li>
+              <li data-filter="Wallpaper">
+                <a href="javascript:void(0);">Wallpaper</a>
+              </li>
+              <li data-filter="UI">
+                <a href="javascript:void(0);">UI</a>
+              </li>
+              <li data-filter="Typography">
+                <a href="javascript:void(0);">Typography</a>
+              </li>
+              <li data-filter="Commission">
+                <a href="javascript:void(0);">Commission</a>
+              </li>
+              <li data-filter="Misc">
+                <a href="javascript:void(0);">Misc</a>
+              </li>
+            </span>
+            <span data-lang="zh">
+              <li class="active" data-filter="*">
+                <a href="javascript:void(0);">全部</a>
+              </li>
+              <li data-filter="Infographic">
+                <a href="javascript:void(0);">信息图</a>
+              </li>
+              <li data-filter="Thumbnail">
+                <a href="javascript:void(0);">缩略图</a>
+              </li>
+              <li data-filter="Wallpaper">
+                <a href="javascript:void(0);">壁纸</a>
+              </li>
+              <li data-filter="UI">
+                <a href="javascript:void(0);">界面</a>
+              </li>
+              <li data-filter="Typography">
+                <a href="javascript:void(0);">字体设计</a>
+              </li>
+              <li data-filter="Commission">
+                <a href="javascript:void(0);">委托</a>
+              </li>
+              <li data-filter="Misc">
+                <a href="javascript:void(0);">杂项</a>
+              </li>
+            </span>
+          </ul>
+        </div>
+
+        <!-- isotope container -->
+        <div id="container" class="isotope">
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="All_Sui.png">
+              <img src="All_Sui.png" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">List of Sui</span>
+              <span data-lang="zh">岁家一览</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/loopline_reminder.png">
+              <img src="webp/loopline_reminder.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Nanzhou ArkOnly01 Preparation</span>
+              <span data-lang="zh">南京ArkOnly01开催准备中</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Dusk.png">
+              <img src="webp/UI-Dusk.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Who is Real UI</span>
+              <span data-lang="zh">画中人UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Commission">
+            <a class="popupimg" href="img/Bingo_Music.png">
+              <img src="webp/Bingo_Music.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">IS#5 Bingo Lockout Music Album Cover</span>
+              <span data-lang="zh">萨卡兹肉鸽Bingo Lockout音乐专辑封面</span>
+              <p class="overlay-desc" data-lang="en">
+                Graphic design for ArknightsEN-sponsored tournament IS#5 Bingo
+                Lockout.
+              </p>
+              <p class="overlay-desc" data-lang="zh">
+                为明日方舟EN官方赞助的赛事萨卡兹肉鸽Bingo
+                Lockout所设计的平面视觉。
+              </p>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Commission">
+            <a
+              class="popupimg"
+              href="img/IS5-Bingo-Lockout-Qualifier-Boards.png"
+            >
+              <img src="webp/IS5-Bingo-Lockout-Qualifier-Boards.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">IS#5 Bingo Lockout Board Rankings</span>
+              <span data-lang="zh">萨卡兹肉鸽Bingo Lockout排行榜</span>
+              <p class="overlay-desc" data-lang="en">
+                Graphic design for ArknightsEN-sponsored tournament IS#5 Bingo
+                Lockout.
+              </p>
+              <p class="overlay-desc" data-lang="zh">
+                为明日方舟EN官方赞助的赛事萨卡兹肉鸽Bingo
+                Lockout所设计的平面视觉。
+              </p>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Eureka.png">
+              <img src="webp/UI-Eureka.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">U-Official UI</span>
+              <span data-lang="zh">尤里卡UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Commission">
+            <a
+              class="popupimg"
+              href="img/IS5-Bingo-Lockout-Qualifiers-Ending.png"
+            >
+              <img src="webp/IS5-Bingo-Lockout-Qualifiers-Ending.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en"
+                >IS#5 Bingo Lockout Qualifiers Ending Soon</span
+              >
+              <span data-lang="zh">萨卡兹肉鸽Bingo Lockout资格赛即将结束</span>
+              <p class="overlay-desc" data-lang="en">
+                Graphic design for ArknightsEN-sponsored tournament IS#5 Bingo
+                Lockout.
+              </p>
+              <p class="overlay-desc" data-lang="zh">
+                为明日方舟EN官方赞助的赛事萨卡兹肉鸽Bingo
+                Lockout所设计的平面视觉。
+              </p>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Commission">
+            <a class="popupimg" href="img/IS5-Bingo-Lockout-Prizes.png">
+              <img src="webp/IS5-Bingo-Lockout-Prizes.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">IS#5 Bingo Lockout Prizes</span>
+              <span data-lang="zh">萨卡兹肉鸽Bingo Lockout图奖品</span>
+              <p class="overlay-desc" data-lang="en">
+                Graphic design for ArknightsEN-sponsored tournament IS#5 Bingo
+                Lockout.
+              </p>
+              <p class="overlay-desc" data-lang="zh">
+                为明日方舟EN官方赞助的赛事萨卡兹肉鸽Bingo
+                Lockout所设计的平面视觉。
+              </p>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Iberia.png">
+              <img src="webp/UI-Iberia.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Stultifera Navis UI</span>
+              <span data-lang="zh">愚人号UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Commission">
+            <a class="popupimg" href="img/IS5-Bingo-Lockout-CC-Form.png">
+              <img src="webp/IS5-Bingo-Lockout-CC-Form.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">IS#5 CC Form</span>
+              <span data-lang="zh">萨卡兹肉鸽Bingo Lockout内容创作者表单</span>
+              <p class="overlay-desc" data-lang="en">
+                Graphic design for ArknightsEN-sponsored tournament IS#5 Bingo
+                Lockout.
+              </p>
+              <p class="overlay-desc" data-lang="zh">
+                为明日方舟EN官方赞助的赛事萨卡兹肉鸽Bingo
+                Lockout所设计的平面视觉。
+              </p>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Commission">
+            <a class="popupimg" href="img/IS5-Bingo-Lockout-Qualifier.png">
+              <img src="webp/IS5-Bingo-Lockout-Qualifier.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">IS#5 Qualifiers Open</span>
+              <p class="overlay-desc" data-lang="en">
+                Graphic design for ArknightsEN-sponsored tournament IS#5 Bingo
+                Lockout.
+              </p>
+              <span data-lang="zh">萨卡兹肉鸽Bingo Lockout资格赛报名开放</span>
+              <p class="overlay-desc" data-lang="zh">
+                为明日方舟EN官方赞助的赛事萨卡兹肉鸽Bingo
+                Lockout所设计的平面视觉。
+              </p>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Exodus.png">
+              <img src="webp/UI-Exodus.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Exodus from the Pale Sea UI</span>
+              <span data-lang="zh">出苍白海UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Typography">
+            <a class="popupimg" href="img/BThanks-3k.png">
+              <img src="webp/BThanks-3k.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">B Thanks 3</span>
+              <span data-lang="zh">B 谢谢3</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-IS2.png">
+              <img src="webp/UI-IS2.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Phantom & Crimson Solitaire UI</span>
+              <span data-lang="zh">傀影与猩红孤钻UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Commission">
+            <a class="popupimg" href="img/BG-Comm.png">
+              <img src="webp/BG-Comm.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">General-Use Background</span>
+              <span data-lang="zh">通用背景</span>
+              <p class="overlay-desc" data-lang="en">
+                Commission for Arknights VNS Head shou.
+              </p>
+              <p class="overlay-desc" data-lang="zh">
+                为明日方舟越南社群负责人shou接的委托。
+              </p>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Chongyue.png">
+              <img src="webp/UI-Chongyue.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Where Vernal Winds Will Never Blow UI</span>
+              <span data-lang="zh">登临意UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Typography">
+            <a class="popupimg" href="img/Thanks-4k.png">
+              <img src="webp/Thanks-4k.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Thanks 4</span>
+              <span data-lang="zh">谢谢4</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Wallpaper">
+            <a class="popupimg" href="img/Lonetrail_Mobile_Alt.png">
+              <img src="webp/Lonetrail_Mobile_Alt.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Lone Trail Phone Wallpaper</span>
+              <span data-lang="zh">孤星手机壁纸</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Wallpaper">
+            <a class="popupimg" href="img/Lonetrail_Wallpaper3.png">
+              <img src="webp/Lonetrail_Wallpaper3.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Lone Trail Desktop Wallpaper 3</span>
+              <span data-lang="zh">孤星桌面壁纸3</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Wallpaper">
+            <a class="popupimg" href="img/Lonetrail_Wallpaper2.png">
+              <img src="webp/Lonetrail_Wallpaper2.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Lone Trail Desktop Wallpaper 2</span>
+              <span data-lang="zh">孤星桌面壁纸1</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Wallpaper">
+            <a class="popupimg" href="img/Lonetrail_Wallpaper.png">
+              <img src="webp/Lonetrail_Wallpaper.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Lone Trail Desktop Wallpaper 1</span>
+              <span data-lang="zh">孤星桌面壁纸1</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Aegir.png">
+              <img src="webp/UI-Aegir.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Path of Life UI</span>
+              <span data-lang="zh">生路UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Typography">
+            <a class="popupimg" href="img/BThanks-2k.png">
+              <img src="webp/BThanks-2k.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">B Thanks 2</span>
+              <span data-lang="zh">B谢谢2</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Hortus.png">
+              <img src="webp/UI-Hortus.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Hortus de Escapismo UI</span>
+              <span data-lang="zh">空想花庭UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Commission">
+            <a class="popupimg" href="img/UI-Elong.png">
+              <img src="webp/UI-Elong.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">5/3 Shanghai Arknights Fan Gathering "Knight vs Elong" UI</span>
+              <span data-lang="zh">5/3上海舟O“勇者斗饿龙”的合影UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Wallpaper">
+            <a class="popupimg" href="laterano_wallpaper.png">
+              <img src="laterano_wallpaper.png" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Laterano Desktop Wallpaper</span>
+              <span data-lang="zh">拉特兰桌面壁纸</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+          <div class="grid-item" data-filter="Wallpaper">
+            <a class="popupimg" href="img/laterano_wallpaper_dark.png">
+              <img src="webp/laterano_wallpaper_dark.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Laterano Dark Theme Wallpaper</span>
+              <span data-lang="zh">拉特兰黑暗壁纸</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+          <div class="grid-item" data-filter="Wallpaper">
+            <a class="popupimg" href="Laterano-Phone-Wallpaper.png">
+              <img src="Laterano-Phone-Wallpaper.png" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Laterano Phone Wallpaper</span>
+              <p class="overlay-desc" data-lang="en">
+                Phone version of the wallpaper used on the hero section.
+              </p>
+              <span data-lang="zh">拉特兰手机壁纸</span>
+              <p class="overlay-desc" data-lang="zh">
+                主视觉中使用的手机壁纸版本。
+              </p>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+          <div class="grid-item" data-filter="Wallpaper">
+            <a class="popupimg" href="img/Laterano-Phone-Wallpaper-dark.png">
+              <img src="webp/Laterano-Phone-Wallpaper-dark.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Laterano Dark Theme Phone Wallpaper</span>
+              <span data-lang="zh">拉特兰黑暗手机壁纸</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Typography">
+            <a class="popupimg" href="img/Thanks-3k.png">
+              <img src="webp/Thanks-3k.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Thanks 3</span>
+              <span data-lang="zh">谢谢3</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Misc">
+            <a
+              class="popupimg"
+              href="img/Bingo-Card-Template-6-Anniversary.png"
+            >
+              <img src="webp/Bingo-Card-Template-6-Anniversary.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">6th Anniversary Bingo Card</span>
+              <span data-lang="zh">六周年宾果卡</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Siracusa.png">
+              <img src="webp/UI-Siracusa.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Il Siracusano UI</span>
+              <span data-lang="zh">叙拉古人UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Kal'tsit.png">
+              <img src="webp/UI-Kal'tsit.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Kal'tsit UI</span>
+              <span data-lang="zh">凯尔希UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Typography">
+            <a class="popupimg" href="img/BThanks-1k.png">
+              <img src="webp/BThanks-1k.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">B Thanks 1</span>
+              <span data-lang="zh">B谢谢1</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Priestess.png">
+              <img src="webp/UI-Priestess.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Priestess UI</span>
+              <span data-lang="zh">普瑞赛斯UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Commission">
+            <a class="popupimg" href="img/IS5-Bingo-Lockout-KV.png">
+              <img src="webp/IS5-Bingo-Lockout-KV.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">IS#5 Bingo Lockout KV</span>
+              <span data-lang="zh">萨卡兹肉鸽图主KV</span>
+              <p class="overlay-desc" data-lang="en">
+                Graphic design for ArknightsEN-sponsored tournament IS#5 Bingo
+                Lockout.
+              </p>
+              <p class="overlay-desc" data-lang="zh">
+                为明日方舟EN官方赞助的赛事萨卡兹肉鸽Bingo
+                Lockout所设计的平面视觉。
+              </p>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Eblana.png">
+              <img src="webp/UI-Eblana.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">When Elegies Are Ashes UI</span>
+              <span data-lang="zh">挽歌燃烧殆尽UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/EN-Operator-Graphic-Marcille.png">
+              <img src="webp/EN-Operator-Graphic-Marcille.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Marcille Operator Graphic</span>
+              <span data-lang="zh">玛露西尔干员图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/EN-Operator-Graphic-Senshi.png">
+              <img src="webp/EN-Operator-Graphic-Senshi.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Senshi Operator Graphic</span>
+              <span data-lang="zh">森西干员图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/EN-Operator-Graphic-Laios.png">
+              <img src="webp/EN-Operator-Graphic-Laios.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Laios Operator Graphic</span>
+              <span data-lang="zh">莱欧斯干员图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/EN-Operator-Graphic-Chilchuck.png">
+              <img src="webp/EN-Operator-Graphic-Chilchuck.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Chilchuck Operator Graphic</span>
+              <span data-lang="zh">齐尔查克干员图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Typography">
+            <a class="popupimg" href="img/Thanks-2k.png">
+              <img src="webp/Thanks-2k.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Thanks 2</span>
+              <span data-lang="zh">谢谢2</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Blacksteel.png">
+              <img src="webp/UI-Blacksteel.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Blacksteel UI</span>
+              <span data-lang="zh">黑钢UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Reed.png">
+              <img src="webp/UI-Reed.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">What the Firelight Casts UI</span>
+              <span data-lang="zh">照我以火UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Misc">
+            <a class="popupimg" href="img/Art-Mostima.png">
+              <img src="webp/Art-Mostima.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">IS#5 Style Mostima Art</span>
+              <span data-lang="zh">萨卡兹肉鸽风莫斯提马绘图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/EN-Operator-Graphic-Babel.png">
+              <img src="webp/EN-Operator-Graphic-Babel.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Babel UI</span>
+              <span data-lang="zh">巴别塔UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/EN-Operator-Graphic-Nymph.png">
+              <img src="webp/EN-Operator-Graphic-Nymph.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Nymph Operator Graphic</span>
+              <span data-lang="zh">妮芙干员图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/EN-Operator-Graphic-Tin-Man.png">
+              <img src="webp/EN-Operator-Graphic-Tin-Man.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Tin Man Operator Graphic</span>
+              <span data-lang="zh">锡人干员图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/EN-Operator-Graphic-Mitm.png">
+              <img src="webp/EN-Operator-Graphic-Mitm.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Mitm Operator Graphic</span>
+              <span data-lang="zh">渡桥干员图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Typography">
+            <a class="popupimg" href="img/Thanks-1k.png">
+              <img src="webp/Thanks-1k.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Thanks 1</span>
+              <span data-lang="zh">谢谢1</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Pepe.png">
+              <img src="webp/UI-Pepe.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en"
+                >Adventure That Cannot Wait for the Sun UI</span
+              >
+              <span data-lang="zh">太阳甩在身后UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Reunion.png">
+              <img src="webp/UI-Reunion.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Such is the Joy of Our Reunion UI</span>
+              <span data-lang="zh">相见欢UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Monster-Hunter.png">
+              <img src="webp/UI-Monster-Hunter.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">A Flurry to the Flame UI</span>
+              <span data-lang="zh">落叶逐火UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Endfield.png">
+              <img src="webp/UI-Endfield.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Endfield UI</span>
+              <span data-lang="zh">终末地UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/EN-Operator-Graphic-Pepe.png">
+              <img src="webp/EN-Operator-Graphic-Pepe.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Pepe Operator Graphic</span>
+              <span data-lang="zh">佩佩干员图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/EN-Operator-Graphic-Narantuya.png">
+              <img src="webp/EN-Operator-Graphic-Narantuya.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Narantuya Operator Graphic</span>
+              <span data-lang="zh">娜仁图亚干员图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/EN-Operator-Graphic-Papyrus.png">
+              <img src="webp/EN-Operator-Graphic-Papyrus.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Papyrus Operator Graphic</span>
+              <span data-lang="zh">莎草干员图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Kjerag.png">
+              <img src="webp/UI-Kjerag.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">The Rides to Lake Silberneherze UI</span>
+              <span data-lang="zh">银心湖列车UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Leithanien.png">
+              <img src="webp/UI-Leithanien.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Zwillingstürme im Herbst UI</span>
+              <span data-lang="zh">崔林特尔梅之金UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-Lonetrail.png">
+              <img src="webp/UI-Lonetrail.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Lone Trail UI</span>
+              <span data-lang="zh">孤星UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-I-Portatori-Dei-Velluti.png">
+              <img src="webp/UI-I-Portatori-Dei-Velluti.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">I Portatori dei Velluti UI</span>
+              <span data-lang="zh">揭幕者们UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Misc">
+            <a class="popupimg" href="img/Old-Iberia-Map.png">
+              <img src="webp/Old-Iberia-Map.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Old Iberia Map</span>
+              <span data-lang="zh">旧伊比利亚地图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Misc">
+            <a class="popupimg" href="img/Perlica-File.png">
+              <img src="webp/Perlica-File.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Perlica File</span>
+              <span data-lang="zh">佩里卡档案</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Typography">
+            <a class="popupimg" href="img/Sarkaz_Serif.jpg">
+              <img src="webp/Sarkaz_Serif.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Sarkaz Serif</span>
+              <p data-lang="en">github.com/LensTM/SarkazSerif</p>
+              <span data-lang="zh">萨卡兹衬线</span>
+              <p data-lang="zh">github.com/LensTM/SarkazSerif</p>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Typography">
+            <a class="popupimg" href="img/Font-Design-Virtuosa.png">
+              <img src="webp/Font-Design-Virtuosa.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Virtuosa CN Font Design</span>
+              <span data-lang="zh">塑心中文字体设计</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Typography">
+            <a class="popupimg" href="img/Font-Design-Snowsant.png">
+              <img src="webp/Font-Design-Snowsant.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Snowsant CN Font Design</span>
+              <span data-lang="zh">雪雉中文字体设计</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Wallpaper">
+            <a class="popupimg" href="img/Lappland-Wallpaper.png">
+              <img src="webp/Lappland-Wallpaper.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Lappland Wallpaper</span>
+              <span data-lang="zh">拉普兰德壁纸</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a
+              class="popupimg"
+              href="img/Ermengarde-Fan-Operator-Preview-3.png"
+            >
+              <img src="webp/Ermengarde-Fan-Operator-Preview-3.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Ermengarde Preview 3</span>
+              <span data-lang="zh">艾尔芒嘉预览图3</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a
+              class="popupimg"
+              href="img/Ermengarde-Fan-Operator-Preview-2.png"
+            >
+              <img src="webp/Ermengarde-Fan-Operator-Preview-2.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Ermengarde Preview 2</span>
+              <span data-lang="zh">艾尔芒嘉预览图2</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a
+              class="popupimg"
+              href="img/Ermengarde-Fan-Operator-Preview-1.png"
+            >
+              <img src="webp/Ermengarde-Fan-Operator-Preview-1.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Ermengarde Preview 1</span>
+              <span data-lang="zh">艾尔芒嘉预览图1</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Misc">
+            <a
+              class="popupimg"
+              href="img/Bingo-Card-Template-5.5-Anniversary.png"
+            >
+              <img src="webp/Bingo-Card-Template-5.5-Anniversary.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">5.5 Anniversary Bingo Card</span>
+              <span data-lang="zh">五周半宾果卡</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/Infographic-Art-Event-5.png">
+              <img src="webp/Infographic-Art-Event-5.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Art Event Infographic 5</span>
+              <span data-lang="zh">美术活动信息图5</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/Infographic-Art-Event-4.png">
+              <img src="webp/Infographic-Art-Event-4.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Art Event Infographic 4</span>
+              <span data-lang="zh">美术活动信息图4</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/Infographic-Art-Event-3.png">
+              <img src="webp/Infographic-Art-Event-3.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Art Event Infographic 3</span>
+              <span data-lang="zh">美术活动信息图3</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/Infographic-Art-Event-2.png">
+              <img src="webp/Infographic-Art-Event-2.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Art Event Infographic 2</span>
+              <span data-lang="zh">美术活动信息图2</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/Infographic-Art-Event-1.png">
+              <img src="webp/Infographic-Art-Event-1.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Art Event Infographic 1</span>
+              <span data-lang="zh">美术活动信息图1</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/Infographic-Animation-Event-4.png">
+              <img src="webp/Infographic-Animation-Event-4.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Animation Event Infographic 4</span>
+              <span data-lang="zh">动画活动信息图4</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/Infographic-Animation-Event-3.png">
+              <img src="webp/Infographic-Animation-Event-3.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Animation Event Infographic 3</span>
+              <span data-lang="zh">动画活动信息图3</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/Infographic-Animation-Event-2.png">
+              <img src="webp/Infographic-Animation-Event-2.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Animation Event Infographic 2</span>
+              <span data-lang="zh">动画活动信息图2</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/Infographic-Animation-Event-1.png">
+              <img src="webp/Infographic-Animation-Event-1.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Animation Event Infographic 1</span>
+              <span data-lang="zh">动画活动信息图1</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Misc">
+            <a class="popupimg" href="img/Logos-Practice-Graphic.png">
+              <img src="webp/Logos-Practice-Graphic.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Logos Practice Graphic</span>
+              <span data-lang="zh">逻各斯练习图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Wallpaper">
+            <a class="popupimg" href="img/Pallas-Phone-Wallpaper.png">
+              <img src="webp/Pallas-Phone-Wallpaper.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Pallas Phone Wallpaper</span>
+              <span data-lang="zh">帕拉斯手机壁纸</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="Infographic">
+            <a class="popupimg" href="img/Magallan-Fan-Operator-Preview.png">
+              <img src="webp/Magallan-Fan-Operator-Preview.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Magallan Operator Preview</span>
+              <span data-lang="zh">麦哲伦干员预览图</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+
+          <div class="grid-item" data-filter="UI">
+            <a class="popupimg" href="img/UI-IS3.png">
+              <img src="webp/UI-IS3.webp" />
+            </a>
+            <div class="overlay">
+              <span data-lang="en">Mizuki & Caerula Arbor UI</span>
+              <span data-lang="zh">水月与深蓝之树UI</span>
+            </div>
+            <span class="corner-dot top-left"></span>
+            <span class="corner-dot top-right"></span>
+            <span class="corner-dot bottom-left"></span>
+            <span class="corner-dot bottom-right"></span>
+          </div>
+        </div>
+        <div
+          class="isotope-pager"
+          style="padding-top: 15px; text-align: center"
+        ></div>
+      </section>
+
+      <section id="contact">
+        <h2 data-lang="en" style="text-align: center;">Contact</h2>
+        <h2 data-lang="zh" style="text-align: center;">联系</h2>
+        <ul class="social">
+          <li data-tooltip="X/Twitter" style="--bg: #14171A">
+            <a href="https://x.com/lens_the_martyr" aria-label="X/Twitter">
+              <img src="icons/x-twitter.svg" alt="Twitter Icon" />
+            </a>
+          </li>
+
+          <li data-tooltip="YouTube" style="--bg: #ff0000">
+            <a href="https://youtube.com/@lens_the_martyr" aria-label="YouTube">
+              <img src="icons/youtube.svg" alt="YouTube Icon" />
+            </a>
+          </li>
+
+          <li data-tooltip="Bilibili" style="--bg: #fa769c">
+            <a href="https://space.bilibili.com/3546605139527684" aria-label="Bilibili">
+              <img src="icons/bilibili.svg" alt="Bilibili Icon" />
+            </a>
+          </li>
+
+          <li data-tooltip="Instagram" style="--bg: linear-gradient(-45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5)">
+            <a href="https://instagram.com/lens_the_martyr/" aria-label="Instagram">
+              <img src="icons/instagram.svg" alt="Instagram Icon" />
+            </a>
+          </li>
+
+          <li data-tooltip="Gmail" style="--bg: linear-gradient(
+            to right,
+            #4285F4 0%,
+            #4285F4 25%,
+            #EA4335 25%,
+            #EA4335 50%,
+            #FBBC05 50%,
+            #FBBC05 75%,
+            #34A853 75%,
+            #34A853 100%
+          );">
+            <a href="/cdn-cgi/l/email-protection#8fe3eae1fcfbe7eae2eefdfbf6fdcfe8e2eee6e3a1ece0e2" aria-label="Gmail">
+              <img src="icons/gmail.svg" alt="Gmail Icon" />
+            </a>
+          </li>
+
+          <li data-tooltip="Discord" style="--bg: #5865f2">
+            <a href="https://discord.gg/hjUzgrSE4g" aria-label="Discord">
+              <img src="icons/discord.svg" alt="Discord Icon" />
+            </a>
+          </li>
+
+          <li data-tooltip="QQ" style="--bg: #25bcfc">
+            <a href="https://qm.qq.com/cgi-bin/qm/qr?k=627338621" aria-label="QQ">
+              <img src="icons/qq.svg" alt="QQ Icon" />
+            </a>
+          </li>
+        </ul>
+
+      </section>
+    </div>
+
+    <audio id="bg-music" src="audio/Touch of the Law.mp3" loop></audio>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+      const themeSelector = document.querySelector(".wrapper select");
+      const body = document.body;
+
+      const switchFloatingText = (theme) => {
+        document.querySelectorAll(".floating-text").forEach((el) => {
+          const belongs = el.dataset.theme || "lat-theme";
+          el.hidden = belongs !== theme;
+          if (!el.hidden) {
+            el.classList.remove("reveal");
+            void el.offsetWidth;
+          }
+        });
+      };
+      const applyJieGardenTheme = () => {
+        body.classList.add("jie-garden-theme");
+        toggleLanguage();
+        toggleLanguage();
+
+        document.documentElement.style.setProperty(
+          "--hero-bg-url",
+          "url('jie_wallpaper.png')"
+        );
+
+        const bgMusic = document.getElementById("bg-music");
+        if (bgMusic) {
+          bgMusic.src = "audio/Jie.mp3";
+          bgMusic.load();
+          bgMusic.play();
+        }
+
+        document
+          .querySelector(".wrapper::before")
+          ?.style.setProperty("background-image", "url('jie_menu_bg.png')");
+        const quoteWrapper = document.querySelector(".quote-wrapper.reveal");
+        if (quoteWrapper)
+          quoteWrapper.style.backgroundImage = "url('jie_activity_bg.png')";
+
+        document.querySelectorAll(".hero img").forEach((img) => {
+          if (img.src.includes("Greetings_EN")) {
+            img.src = "Greetings_jie.png";
+          }
+          if (img.src.includes("Greetings_CN")) {
+            img.src = "Greetings_jie.png";
+          }
+        });
+        const menuLabel = document.querySelector(".menu-btn");
+
+        menuLabel.querySelectorAll("img").forEach((img) => {
+          if (img.src.includes("Menu")) {
+            img.src = "Jie_Menu.png";
+          }
+          if (img.src.includes("Close")) {
+            img.src = "Jie_Close.png";
+          }
+        });
+        document.querySelectorAll(".h2-bg").forEach((img) => {
+          img.src = "h2-bg-jie.png";
+        });
+        document.querySelectorAll(".hover-video").forEach((video) => {
+          video.src = "Jie-Lens.webm";
+        });
+        const boxImg = document.querySelector(".box img");
+        if (boxImg) boxImg.src = "jie_Lens.png";
+
+        const style = document.createElement("style");
+        switchFloatingText("jie-garden");
+      };
+
+      const quoteWrapper = document.querySelector(".quote-wrapper");
+      if (quoteWrapper && quoteWrapper.classList.contains("reveal")) {
+        quoteWrapper.classList.remove("reveal");
+        void quoteWrapper.offsetWidth; // Force reflow
+        quoteWrapper.classList.add("reveal");
+      }
+
+      themeSelector.addEventListener("change", (e) => {
+        const selected = e.target.value;
+        if (selected === "jie-garden") {
+          applyJieGardenTheme();
+        } else {
+          removeJieGardenTheme();
+        }
+      });
+
+      const reloadToLaterano = () => {
+        location.reload();
+      };
+
+      themeSelector.addEventListener("change", (e) => {
+        const selected = e.target.value;
+        if (selected === "jie-garden") {
+          applyJieGardenTheme();
+        } else {
+          reloadToLaterano();
+        }
+      });
+
+      switchFloatingText("lat-theme");
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+
+    <script>
+      document.querySelectorAll(".box").forEach((box) => {
+        const video = box.querySelector("video.hover-video");
+
+        let isHovering = false;
+        let hasEnded = false;
+        let isPlaying = false;
+
+        box.addEventListener("mouseenter", () => {
+          isHovering = true;
+          box.classList.add("hovering");
+
+          if (!isPlaying) {
+            video.currentTime = 0;
+            video.play();
+            isPlaying = true;
+            hasEnded = false;
+            box.classList.add("video-playing");
+          }
+        });
+
+        box.addEventListener("mouseleave", () => {
+          isHovering = false;
+          box.classList.remove("hovering");
+
+          if (hasEnded) {
+            box.classList.remove("video-playing");
+          }
+        });
+
+        video.addEventListener("ended", () => {
+          hasEnded = true;
+          isPlaying = false;
+
+          if (!isHovering) {
+            box.classList.remove("video-playing");
+          }
+        });
+      });
+
+      window.addEventListener("scroll", () => {
+        const quote = document.querySelector(".quote-wrapper");
+        const quoteRect = quote.getBoundingClientRect();
+        const scrollTop = window.scrollY;
+        const fadeDistance = 400;
+        const afterQuote = quoteRect.bottom < window.innerHeight * 0.5;
+
+        if (document.body.classList.contains("jie-garden-theme")) {
+          if (afterQuote) {
+            document.documentElement.style.setProperty(
+              "--hero-bg-url",
+              "url('jie-last-bg.png')"
+            );
+            document.documentElement.style.setProperty(
+              "--hero-after-opacity",
+              1
+            );
+          } else {
+            document.documentElement.style.setProperty(
+              "--hero-bg-url",
+              "url('jie_wallpaper.png')"
+            );
+            const opacity = Math.max(0, 1 - scrollTop / fadeDistance);
+            document.documentElement.style.setProperty(
+              "--hero-after-opacity",
+              opacity
+            );
+          }
+        } else {
+          if (afterQuote) {
+            document.documentElement.style.setProperty(
+              "--hero-bg-url",
+              "url('last-bg.png')"
+            );
+            document.documentElement.style.setProperty(
+              "--hero-after-opacity",
+              1
+            );
+          } else {
+            document.documentElement.style.setProperty(
+              "--hero-bg-url",
+              "url('laterano_wallpaper.png')"
+            );
+            const opacity = Math.max(0, 1 - scrollTop / fadeDistance);
+            document.documentElement.style.setProperty(
+              "--hero-after-opacity",
+              opacity
+            );
+          }
+        }
+      });
+
+      function revealQuoteBackground() {
+        const quote = document.querySelector(".quote-wrapper");
+        const trigger = window.innerHeight * 0.85;
+        const rect = quote.getBoundingClientRect();
+
+        if (rect.top < trigger) {
+          quote.classList.add("reveal");
+        }
+      }
+
+      window.addEventListener("scroll", revealQuoteBackground);
+      window.addEventListener("load", revealQuoteBackground);
+
+      function revealFloatingText() {
+        const texts = document.querySelectorAll(".floating-text");
+        const trigger = window.innerHeight * 0.85;
+
+        texts.forEach((text) => {
+          if (text.offsetParent === null) return;
+
+          const rect = text.getBoundingClientRect();
+          if (rect.top < trigger) {
+            text.classList.add("reveal");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", revealFloatingText);
+      window.addEventListener("load", revealFloatingText);
+
+      window.addEventListener("scroll", revealFloatingText);
+      window.addEventListener("load", revealFloatingText);
+
+      function revealOnScroll() {
+        const sections = document.querySelectorAll("section");
+        const triggerBottom = window.innerHeight * 0.85;
+
+        sections.forEach((section) => {
+          const sectionTop = section.getBoundingClientRect().top;
+          if (sectionTop < triggerBottom) {
+            section.classList.add("reveal");
+
+            section.querySelectorAll(".box").forEach((box) => {
+              box.classList.add("show");
+            });
+          }
+        });
+      }
+
+      window.addEventListener("scroll", revealOnScroll);
+      window.addEventListener("load", revealOnScroll);
+
+      let currentLang = "zh";
+
+      function toggleLanguage() {
+        currentLang = currentLang === "en" ? "zh" : "en";
+
+        document.querySelectorAll("[data-lang]").forEach((el) => {
+          el.style.display = el.getAttribute("data-lang") === currentLang ? "" : "none";
+        });
+
+        const langBtnImg = document.querySelector(".lang-toggle img");
+        const isJieTheme = document.body.classList.contains("jie-garden-theme");
+
+        if (currentLang === "en") {
+          langBtnImg.src = isJieTheme ? "EN-jie.png" : "EN.png";
+        } else {
+          langBtnImg.src = isJieTheme ? "ZH-jie.png" : "ZH.png";
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const browserLang = navigator.language || navigator.userLanguage;
+        const isEnglish = browserLang.startsWith("en");
+
+        currentLang = isEnglish ? "zh" : "en";
+        toggleLanguage();
+      });
+
+      const $grid = $("#container").isotope({
+        itemSelector: ".grid-item",
+        masonry: { columnWidth: ".grid-item", isFitWidth: true },
+      });
+
+      const pageSizes = [[0, 12]];
+
+      let curFilter = "*",
+        curPage = 1,
+        perPage = calcPerPage();
+
+      buildPager();
+      goToPage(1);
+
+      $(".filter-button-group").on("click", "li", function () {
+        $(".filter-button-group li").removeClass("active");
+        $(this).addClass("active");
+        curFilter = $(this).data("filter");
+        buildPager();
+        goToPage(1);
+      });
+
+      $(".isotope-pager").on("click", "a", function () {
+        if ($(this).hasClass("active")) return;
+        curPage = +$(this).data("page");
+        goToPage(curPage);
+      });
+
+      $(window).on("resize", () => {
+        const newPP = calcPerPage();
+        if (newPP !== perPage) {
+          perPage = newPP;
+          buildPager();
+          goToPage(1);
+        }
+      });
+
+      $(".popupimg").magnificPopup({
+        type: "image",
+        mainClass: "mfp-fade",
+        removalDelay: 300,
+        gallery: { enabled: true },
+      });
+
+      function calcPerPage() {
+        const w = $(window).width();
+        return pageSizes.find(([bp]) => w >= bp)[1];
+      }
+
+      function buildPager() {
+        const $items = $grid.children(
+          curFilter === "*"
+            ? ".grid-item"
+            : `.grid-item[data-filter="${curFilter}"]`
+        );
+        const pages = Math.ceil($items.length / perPage);
+        let page = 1,
+          itemCnt = 0;
+
+        $items.each(function () {
+          $(this).attr("data-page", page);
+          if (++itemCnt > perPage) {
+            page++;
+            itemCnt = 1;
+          }
+        });
+
+        const $pager = $(".isotope-pager").empty();
+        for (let i = 1; i <= pages; i++) {
+          $("<a>", {
+            text: i,
+            "data-page": i,
+            class: "num" + (i === 1 ? " active" : ""),
+          }).appendTo($pager);
+        }
+      }
+
+      function goToPage(n) {
+        curPage = n;
+        $(".isotope-pager a")
+          .removeClass("active")
+          .filter(`[data-page=${n}]`)
+          .addClass("active");
+        const sel =
+          (curFilter === "*"
+            ? ".grid-item"
+            : `.grid-item[data-filter="${curFilter}"]`) + `[data-page=${n}]`;
+        $grid.isotope({ filter: sel });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".popupimg img").forEach(img => {
+          img.setAttribute("loading", "lazy");
+        });
+      });
+
+      const musicBtn = document.querySelector(".music-btn");
+      const music = document.getElementById("bg-music");
+
+      let isPlaying = false;
+
+      musicBtn.addEventListener("click", () => {
+        if (!isPlaying) {
+          music
+            .play()
+            .then(() => {
+              isPlaying = true;
+              musicBtn.classList.remove("paused");
+            })
+            .catch((err) => {
+              console.error("Autoplay error:", err);
+            });
+        } else {
+          if (music.paused) {
+            music.play();
+            musicBtn.classList.remove("paused");
+          } else {
+            music.pause();
+            musicBtn.classList.add("paused");
+          }
+        }
+      });
+      let pulseCooldown = false;
+
+      music.addEventListener('timeupdate', () => {
+        if (music.loop && music.duration) {
+          const nearingEnd = music.currentTime > music.duration - 0.3;
+          const isJieTheme = document.body.classList.contains('jie-garden-theme');
+
+          if (nearingEnd && !pulseCooldown && isJieTheme) {
+            pulseCooldown = true;
+            document.body.classList.add('font-pulse');
+
+            setTimeout(() => {
+              document.body.classList.remove('font-pulse');
+              pulseCooldown = false;
+            }, 3000);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
