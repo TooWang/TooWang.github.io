@@ -10,6 +10,7 @@
             font-family: Noto Sans TC, sans-serif;
             margin: 0;
             padding: 0;
+            overflow: hidden;
         }
 
         .fab_Navbar {position: fixed; top: 0; width: 100%; z-index: 9999; }
@@ -18,15 +19,26 @@
         .fab_menu {position: fixed; top: 1.77%; left: 1.77%; z-index: 10000; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); visibility: visible; }
         .fab_menu img {width: 1.77%; height: auto; object-fit: cover; }
 
-        .container { height: 100vh; overflow-y: scroll;}
-        .container div {height: 100%; height: 100vh;}
+        .container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .container div {
+            height: 100vh; /* Changed from 100% to 100vh */
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+    
         
         
     </style>
 </head>
-<body background="./Images/Index/Index_Background.png" style="background-size: cover; background-attachment: fixed;">
+<body background="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_background.png" style="background-size: cover; background-attachment: fixed;">
     <div class="fab_Navbar">
-        <img src="./Images/Index/Index_Head.png"
+        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_head.png"
             style="width: 100%;"
             draggable="false" >
         <style>
@@ -38,7 +50,7 @@
     </div>
 
     <div class="fab_menu">
-        <img src="./Images/Index/Icons/Index_Icon_Menu.png"
+        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_icon_menu.png"
             style="width: 100%;"
             draggable="false" >
         <style>
@@ -52,7 +64,7 @@
 
     <div class="container">
         <div class="Main_KV">
-            <img src="./Images/Index/Image_KV_Background.png" 
+            <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_kv.png" 
                 style="width: 100%;"
                 draggable="false" >
             <style>
@@ -62,112 +74,111 @@
                 }
             </style>
         </div>
+        
+        <div class="Main_KV">
+            <div class="carousel" style="height: 50%; width: 50%; margin: center; top: 30%; position: relative;">
+                <div class="carousel-container">
+                    <div class="carousel-slide">
+                        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/e7b582e5a78be68993e6b395e694bbe795a5.png" alt="Slide 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/e7b582e5a78be6a99fe588b6e8a7a3e69e90.png" alt="Slide 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/e8999be784a1e4b98be581b6e694bbe795a5.png" alt="Slide 3">
+                    </div>
+                </div>
+                <button class="carousel-button prev">&#10094;</button>
+                <button class="carousel-button next">&#10095;</button>
 
-        <div class="carousel">
-            <div class="carousel-container">
-        <div class="carousel-slide">
-            <img src="./Images/Index/終始打法攻略.png" alt="Slide 1">
+                <style>
+                    .carousel {
+                        position: relative;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, 0);
+                        width: 100%;
+                        overflow: hidden;
+                        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+                        z-index: 2;
+                    }
+
+                    .carousel-container {
+                        width: 100%;
+                        height: auto;
+                        display: flex;
+                        transition: transform 0.5s ease-in-out;
+                    }
+
+                    .carousel-slide {
+                        min-width: 100%;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: transparent;
+                    }
+
+                    .carousel-slide img {
+                        align-self: start;
+                        width: 100%;
+                    }
+
+                    .carousel-button {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: rgba(128, 128, 128, 0.5);
+                        color: white;
+                        padding: 16px;
+                        border: none;
+                        cursor: pointer;
+                        font-size: 18px;
+                    }
+
+                    .prev {
+                        left: 0%;
+                    }
+
+                    .next {
+                        right: 0%;
+                    }
+
+                    .carousel-button:hover {
+                        background: rgba(0, 0, 0, 0.8);
+                    }
+                </style>
+
+                <script>
+                    const carouselContainer = document.querySelector('.carousel-container');
+                    const slides = document.querySelectorAll('.carousel-slide');
+                    const prevButton = document.querySelector('.prev');
+                    const nextButton = document.querySelector('.next');
+
+                    let currentIndex = 0;
+
+                    function updateCarousel() {
+                        carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    }
+
+                    function nextSlide() {
+                        currentIndex = (currentIndex + 1) % slides.length;
+                        updateCarousel();
+                    }
+
+                    function prevSlide() {
+                        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                        updateCarousel();
+                    }
+
+                    prevButton.addEventListener('click', prevSlide);
+                    nextButton.addEventListener('click', nextSlide);
+
+                    // Auto-advance slides every 5 seconds
+                    setInterval(nextSlide, 5000);
+                </script>
+            </div>
         </div>
-        <div class="carousel-slide">
-            <img src="./Images/Index/終始機制解析.png" alt="Slide 2">
-        </div>
-        <div class="carousel-slide">
-            <img src="./Images/Index/虛無之偶攻略.png" alt="Slide 3">
-        </div>
-    </div>
-    <button class="carousel-button prev">&#10094;</button>
-    <button class="carousel-button next">&#10095;</button>
-
-    <style>
-        .carousel {
-            position: relative;
-            top: 30%;
-            text-align: center;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .carousel-container {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-        }
-
-        .carousel-slide img {
-            width: 60%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(128, 128, 128, 0.5);
-            color: white;
-            padding: 16px;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .prev {
-            left: 20%;
-        }
-
-        .next {
-            right: 20%;
-        }
-
-        .carousel-button:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-    </style>
-
-    <script>
-        const carouselContainer = document.querySelector('.carousel-container');
-        const slides = document.querySelectorAll('.carousel-slide');
-        const prevButton = document.querySelector('.prev');
-        const nextButton = document.querySelector('.next');
-
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateCarousel();
-        }
-
-        prevButton.addEventListener('click', prevSlide);
-        nextButton.addEventListener('click', nextSlide);
-
-        // Auto-advance slides every 5 seconds
-        setInterval(nextSlide, 5000);
-    </script>
-        </div>
-
-        <style>
-            .container {
-                height: 100vh;
-                overflow-y: scroll;
-                scroll-snap-type: y mandatory;
-            }
-            .container div {
-                width: 100%;
-                height: 100vh;
-                scroll-snap-align: start;
-            }
-        </style>
     </div>
 </body>
