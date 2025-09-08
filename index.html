@@ -19,24 +19,12 @@
         .fab_menu {position: fixed; top: 1.77%; left: 1.77%; z-index: 10000; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); visibility: visible; }
         .fab_menu img {width: 1.77%; height: auto; object-fit: cover; }
 
-        .container {
-            height: 100vh;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
-        }
+        .container {height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; scroll-behavior: smooth; scrollbar-color: transparent;}
+        .container div {height: 100vh; scroll-snap-align: start; scroll-snap-stop: always;}
 
-        .container div {
-            height: 100vh; /* Changed from 100% to 100vh */
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
-        }
-    
-        
-        
     </style>
 </head>
-<body background="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_background.png" style="background-size: cover; background-attachment: fixed;">
+<body background="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_background.png" style="background-size: cover; background-attachment: fixed;" z-index="-1">
     <div class="fab_Navbar">
         <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_head.png"
             style="width: 100%;"
@@ -75,8 +63,8 @@
             </style>
         </div>
         
-        <div class="Main_KV">
-            <div class="carousel" style="height: 50%; width: 50%; margin: center; top: 30%; position: relative;">
+        <div class="Main_KV" background="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_background.png" style="background-size: cover; background-attachment: fixed;">
+            <div class="carousel" style="height: 50%; width: 50%; margin: center; top: 25%; position: relative;">
                 <div class="carousel-container">
                     <div class="carousel-slide">
                         <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/e7b582e5a78be68993e6b395e694bbe795a5.png" alt="Slide 1">
@@ -94,7 +82,7 @@
                 <style>
                     .carousel {
                         position: relative;
-                        top: 50%;
+                        top: 40%;
                         left: 50%;
                         transform: translate(-50%, 0);
                         width: 100%;
