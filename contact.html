@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <title>啊?戈爾舟遊籌措會</title>
+    <link rel="icon" href="./icon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            font-family: Noto Sans TC, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .fab_Navbar {position: fixed; top: 0; width: 100%; z-index: 9999; }
+        .fab_Navbar img {width: 100%; display: block; }
+
+        .fab_menu {position: fixed; top: 1.77%; left: 1.77%; z-index: 10000; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); visibility: visible; }
+        .fab_menu img {width: 1.77%; height: auto; object-fit: cover; }
+
+        .ContactUs {
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+        
+        .side-menu {position: fixed; top: 0; left: -250px; width: 250px; height: 100vh; background: rgba(255,255,255,0.97); box-shadow: 2px 0 10px rgba(0,0,0,0.2); z-index: 10001; transition: left 0.3s ease; padding-top: 60px;}
+        .side-menu.open {left: 0;}
+        .side-menu ul {list-style: none; padding: 0; margin: 0;}
+        .side-menu li {margin: 24px 0; text-align: center;}
+        .side-menu a {text-decoration: none; color: #333; font-size: 1.2em;transition: color 0.2s;}
+        .side-menu a:hover {color: #e88282;}
+
+    </style>
+</head>
+
+<body background="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_background.png" style="background-size: cover; background-attachment: fixed;" z-index="-1">
+    <div class="fab_Navbar">
+        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_head.png"
+            style="width: 100%;"
+            draggable="false" >
+        <style>
+            .fab_Navbar {
+                z-index: 9999;
+                top: 0;
+            }
+        </style>
+    </div>
+
+    <div class="fab_menu">
+        <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_icon_menu.png"
+            style="width: 100%;"
+            draggable="false" >
+        <style>
+            .fab_menu {
+                z-index: 10000;
+                top: 1.77%;
+                left: 1.77%;
+            }
+        </style>
+    </div>
+
+    <div id="sideMenu" class="side-menu">
+        <ul>
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="/SBC4/index.html">寄術杯#4</a></li>
+            <li><a href="#">聯絡我們</a></li>
+        </ul>
+    </div>
+
+    <!--
+    <div class="ContactUs">
+        <section id="contact">
+            <h2 style="text-align: center;">聯絡我們</h2>
+            <ul class="social">
+            <li data-tooltip="X/Twitter" style="--bg: #14171A">
+                <a href="https://x.com/lens_the_martyr" aria-label="X/Twitter">
+                <img src="icons/x-twitter.svg" alt="Twitter Icon" />
+                </a>
+            </li>
+
+            <li data-tooltip="YouTube" style="--bg: #ff0000">
+                <a href="https://youtube.com/@lens_the_martyr" aria-label="YouTube">
+                <img src="icons/youtube.svg" alt="YouTube Icon" />
+                </a>
+            </li>
+
+            <li data-tooltip="Bilibili" style="--bg: #fa769c">
+                <a href="https://space.bilibili.com/3546605139527684" aria-label="Bilibili">
+                <img src="icons/bilibili.svg" alt="Bilibili Icon" />
+                </a>
+            </li>
+
+            <li data-tooltip="Instagram" style="--bg: linear-gradient(-45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5)">
+                <a href="https://instagram.com/lens_the_martyr/" aria-label="Instagram">
+                <img src="icons/instagram.svg" alt="Instagram Icon" />
+                </a>
+            </li>
+
+            <li data-tooltip="Gmail" style="--bg: linear-gradient(
+                to right,
+                #4285F4 0%,
+                #4285F4 25%,
+                #EA4335 25%,
+                #EA4335 50%,
+                #FBBC05 50%,
+                #FBBC05 75%,
+                #34A853 75%,
+                #34A853 100%
+            );">
+                <a href="/cdn-cgi/l/email-protection#234f464d50574b464e4251575a5163444e424a4f0d404c4e" aria-label="Gmail">
+                <img src="icons/gmail.svg" alt="Gmail Icon" />
+                </a>
+            </li>
+
+            <li data-tooltip="Discord" style="--bg: #5865f2">
+                <a href="https://discord.gg/hjUzgrSE4g" aria-label="Discord">
+                <img src="icons/discord.svg" alt="Discord Icon" />
+                </a>
+            </li>
+
+            <li data-tooltip="QQ" style="--bg: #25bcfc">
+                <a href="https://qm.qq.com/cgi-bin/qm/qr?k=627338621" aria-label="QQ">
+                <img src="icons/qq.svg" alt="QQ Icon" />
+                </a>
+            </li>
+            </ul>
+        </section>
+    </div>
+-->
+    <script>
+        const fabMenu = document.querySelector('.fab_menu');
+        const sideMenu = document.getElementById('sideMenu');
+
+        fabMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+            sideMenu.classList.toggle('open');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (sideMenu.classList.contains('open') && !sideMenu.contains(e.target) && !fabMenu.contains(e.target)) {
+                sideMenu.classList.remove('open');
+            }
+        });
+    </script>
+</body>
