@@ -19,8 +19,43 @@
         .fab_menu {position: fixed; top: 1.77%; left: 1.77%; z-index: 10000; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); visibility: visible; }
         .fab_menu img {width: 1.77%; height: auto; object-fit: cover; }
 
-        .container {height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; scroll-behavior: smooth; scrollbar-color: transparent;}
+        .container {height: 100vh; overflow-y: hidden; scroll-snap-type: y mandatory; scroll-behavior: smooth; scrollbar-color: transparent;}
         .container div {height: 100vh; scroll-snap-align: start; scroll-snap-stop: always;}
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Hide off-screen */
+            width: 250px;
+            height: 100vh;
+            background: rgba(255,255,255,0.97);
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            z-index: 10001;
+            transition: left 0.3s ease;
+            padding-top: 60px;
+        }
+        .side-menu.open {
+            left: 0;
+        }
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .side-menu li {
+            margin: 24px 0;
+            text-align: center;
+        }
+        .side-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2em;
+            transition: color 0.2s;
+        }
+        .side-menu a:hover {
+            color: #007bff;
+        }
+
 
     </style>
 </head>
@@ -48,6 +83,15 @@
                 left: 1.77%;
             }
         </style>
+    </div>
+
+    <div id="sideMenu" class="side-menu">
+        <ul>
+            <li><a href="#">首頁</a></li>
+            <li><a href="/SBC4/index.html">寄術杯#4</a></li>
+            <li><a href="#">報名方式</a></li>
+            <li><a href="#">聯絡我們</a></li>
+        </ul>
     </div>
 
     <div class="container">
@@ -163,8 +207,21 @@
                     prevButton.addEventListener('click', prevSlide);
                     nextButton.addEventListener('click', nextSlide);
 
-                    // Auto-advance slides every 5 seconds
                     setInterval(nextSlide, 5000);
+                    const fabMenu = document.querySelector('.fab_menu');
+                    const sideMenu = document.getElementById('sideMenu');
+
+                    fabMenu.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        sideMenu.classList.toggle('open');
+                    });
+
+                    document.addEventListener('click', function(e) {
+                        if (sideMenu.classList.contains('open') && !sideMenu.contains(e.target) && !fabMenu.contains(e.target)) {
+                            sideMenu.classList.remove('open');
+                        }
+                    });
+
                 </script>
             </div>
         </div>
