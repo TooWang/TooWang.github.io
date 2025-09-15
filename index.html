@@ -22,39 +22,12 @@
         .container {height: 100vh; overflow-y: hidden; scroll-snap-type: y mandatory; scroll-behavior: smooth; scrollbar-color: transparent;}
         .container div {height: 100vh; scroll-snap-align: start; scroll-snap-stop: always;}
 
-        .side-menu {
-            position: fixed;
-            top: 0;
-            left: -250px; /* Hide off-screen */
-            width: 250px;
-            height: 100vh;
-            background: rgba(255,255,255,0.97);
-            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-            z-index: 10001;
-            transition: left 0.3s ease;
-            padding-top: 60px;
-        }
-        .side-menu.open {
-            left: 0;
-        }
-        .side-menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .side-menu li {
-            margin: 24px 0;
-            text-align: center;
-        }
-        .side-menu a {
-            text-decoration: none;
-            color: #333;
-            font-size: 1.2em;
-            transition: color 0.2s;
-        }
-        .side-menu a:hover {
-            color: #007bff;
-        }
+        .side-menu {position: fixed; top: 0; left: -250px; width: 250px; height: 100vh; background: rgba(255,255,255,0.97); box-shadow: 2px 0 10px rgba(0,0,0,0.2); z-index: 10001; transition: left 0.3s ease; padding-top: 60px;}
+        .side-menu.open {left: 0;}
+        .side-menu ul {list-style: none; padding: 0; margin: 0;}
+        .side-menu li {margin: 24px 0; text-align: center;}
+        .side-menu a {text-decoration: none; color: #333; font-size: 1.2em;transition: color 0.2s;}
+        .side-menu a:hover {color: #007bff;}
 
 
     </style>
@@ -95,10 +68,11 @@
     </div>
 
     <div class="container">
-        <div class="Main_KV">
-            <img src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_kv.png" 
+        <div class="Main_KV"> 
+            <img id="mainKVImg"
+                src="https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_kv.png"
                 style="width: 100%;"
-                draggable="false" >
+                draggable="false">
             <style>
                 .Main_KV {
                     position: relative;
@@ -222,6 +196,17 @@
                         }
                     });
 
+                    
+                    const mainKVImg = document.getElementById('mainKVImg');
+                    const originalSrc = "https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_kv.png";
+                    const interactiveSrc = "https://aegirorganizingcommittee-pntdk.wordpress.com/wp-content/uploads/2025/09/index_kv_interactive-1.png";
+
+                    mainKVImg.addEventListener('mouseenter', function() {
+                        mainKVImg.src = interactiveSrc;
+                    });
+                    mainKVImg.addEventListener('mouseleave', function() {
+                        mainKVImg.src = originalSrc;
+                    });
                 </script>
             </div>
         </div>
