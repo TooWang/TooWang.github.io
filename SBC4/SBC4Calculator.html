@@ -25,8 +25,15 @@
             grid-template-columns: 1fr 1fr 1fr;
             gap: 24px;
         }
-        h3 {
+        h2 {
             margin-top: 0;
+        }
+        h3 {
+            margin-bottom: 10px;
+        }
+        h4 {
+            margin-top: 0;
+            margin-bottom: 0;
         }
         label, input, select {
             margin: 6px 0;
@@ -37,6 +44,13 @@
         }
         input[type="checkbox"] {
             margin-right: 4px;
+            width: 24px;
+            height: 24px;
+            padding: 4px 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-right: 0;
         }
         #lastscore {
             text-align: center;
@@ -44,6 +58,40 @@
         }
         .grid-section {
             padding: 8px;
+        }
+        /* 這裡自訂所有 input 的大小 */
+        input[type="number"],
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 48px;
+            height: 24px;
+            font-size: 1em;
+            padding: 4px 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-right: 0;
+        }
+        /* 讓 select 也統一外觀 */
+        select {
+            width: 110px;
+            height: 32px;
+            font-size: 1em;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+        }
+        .input-row-grid {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        .input-row-grid .input-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
     </style>
 </head>
@@ -53,7 +101,7 @@
             <div class="calculator-grid">
                 <!-- 第一列：選手資料 -->
                 <div class="grid-section" id="player">
-                    <h3>選手資料</h3>
+                    <h2>選手資料</h2>
                     <label for="options">選手名稱：</label>
                     <select id="options" name="options">
                         <option value="0">貓毛貓</option>
@@ -82,89 +130,187 @@
                     <br>
                     <label for="money">總共取:</label>
                     <div id="money"></div>
+                    <hr>
+                        <div>
+                            <h2>
+                            <label for="game_score">遊戲結算:</label>
+                            <input type="number" id="game_score">
+                            </h2>
+                        </div>
                 </div>
                 <!-- 第二列：分數計算（上半部） -->
                 <div class="grid-section">
-                    <h3>比賽分數</h3>
+                    <h2>比賽分數</h2>
                     <div>
                         <div>
-                            <label for="game_score">遊戲結算:</label>
-                            <input type="number" id="game_score">
-                        </div>
-                        <hr>
-                        <div>
-                            <label for="3FBoss">三層衛國前夜boss:</label>
-                            <div id="3FBoss" style="display: inline-block;width: 20px;"></div>
-                            <br />
+                            <h3><label for="3FBoss">三層衛國前夜boss:</label></h3>
                             <input type="checkbox" name="3fboss" value="100" id="breath">王冠之下
                             <input type="checkbox" name="3fboss" value="100" id="tree">離歌的庭院
                             <input type="checkbox" name="3fboss" value="100" id="earth">赴敵者
                         </div>
                         <hr>
                         <div>
-                            <label for="hard_score">緊急加分:</label>
-                            <div id="hard_score" style="display: inline-block;"></div>
-                            <div style="display:flex">三層</div>
-                            <input type="number" class="level" id="Checkerboard">大棋一盤
-                            <input type="number" class="level" id="Grimoire">潰亂魔典
-                            <input type="number" class="level" id="ThreeFloorOther">其他緊急
-                            <div style="display: flex;">四層</div>
-                            <input type="number" class="level" id="Elusive">神出鬼沒
-                            <input type="number" class="level" id="Chaos">混沌
-                            <input type="number" class="level" id="FourFloorOther">其他緊急
-                            <div style="display: flex;">五層</div>
-                            <input type="number" class="level" id="Army">建制
-                            <input type="number" class="level" id="FiveFloorOther">其他緊急
-                            <div style="display: flex;">六層</div>
-                            <input type="number" class="level" id="Heretics">外道
-                            <input type="number" class="level" id="Paradise">洞天福地
-                            <input type="number" class="level" id="SixFloorOther">其他緊急
+                            <h3><label for="hard_score">緊急加分:</label></h3>
+                            <div><h4>三層</h4></div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="number" class="level" id="Checkerboard">
+                                    <label for="Checkerboard">大棋一盤</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" class="level" id="Grimoire">
+                                    <label for="Grimoire">潰亂魔典</label>
+                                </div>
+                            </div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="number" class="level" id="ThreeFloorOther">
+                                    <label for="ThreeFloorOther">其他緊急</label>
+                                </div>
+                                <div></div>
+                            </div>
+                            <div><h4>四層</h4></div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="number" class="level" id="Elusive">
+                                    <label for="Elusive">神出鬼沒</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" class="level" id="Chaos">
+                                    <label for="Chaos">混沌</label>
+                                </div>
+                            </div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="number" class="level" id="FourFloorOther">
+                                    <label for="FourFloorOther">其他緊急</label>
+                                </div>
+                                <div></div>
+                            </div>
+                            <div><h4>五層</h4></div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="number" class="level" id="Army">
+                                    <label for="Army">建制</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" class="level" id="FiveFloorOther">
+                                    <label for="FiveFloorOther">其他緊急</label>
+                                </div>
+                            </div>
+                            <div><h4>六層</h4></div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="number" class="level" id="Heretics">
+                                    <label for="Heretics">外道</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" class="level" id="Paradise">
+                                    <label for="Paradise">洞天福地</label>
+                                </div>
+                            </div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="number" class="level" id="SixFloorOther">
+                                    <label for="SixFloorOther">其他緊急</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- 第三列：分數計算（下半部） -->
                 <div class="grid-section">
-                    <h3>其他分數</h3>
+                    <h2>其他分數</h2>
                     <div>
                         <div>
-                            <label for="special_score">【鴨爵與雇員】事件<br />失敗的試膽/信號燈/劫虛濟實/玩具的報復/鴨速公路總共擊殺:</label>
-                            <div id="special_score" style="display: inline-block;"></div>
-                            <br />
-                            <input type="number" class="animal" id="duck">鴨爵<br />
-                            <input type="number" class="animal" id="dog">流淚小子<br />
+                            <label for="special_score"><h3>【鴨爵與雇員】事件</h3></label>
+                            <input type="number" class="animal" id="duck">鴨爵
+                            <input type="number" class="animal" id="dog">流淚小子
                             <input type="number" class="animal" id="bear">高普尼克
                         </div>
                         <hr>
                         <div>
-                            <label for="special_level">特殊關卡加分:</label>
-                            <div id="special_level" style="display: inline-block; width: 20px;"></div>
-                            <br />
-                            <input type="checkbox" name="special" value="30" id="fleet">繼承
-                            <input type="checkbox" name="special" value="30" id="justice">戰場測面
-                            <input type="checkbox" name="special" value="100" id="penalty">物權糾紛
-                            <input type="checkbox" name="special" value="50" id="halfway">敘事要約
+                            <label for="special_level"><h3>特殊關卡加分:</h3></label>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="number" class="special" id="fleet">
+                                    <label for="fleet">繼承</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" class="special" id="justice">
+                                    <label for="justice">戰場側面</label>
+                                </div>
+                            </div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="number" class="special" id="penalty">
+                                    <label for="penalty">物權糾紛</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" class="special" id="halway">
+                                    <label for="special">敘事要約</label>
+                                </div>
+                            </div>
                         </div>
                         <hr>
                         <div>
-                            <label for="result">結局加分:</label>
-                            <div id="result" style="display: inline-block;width:20px;"></div>
-                            <br>
-                            <input type="checkbox" name="boss" value="50" id="icebox">緊急授課
-                            <input type="checkbox" name="boss" value="10" id="diff_icebox">混亂
-                            <br>
-                            <input type="checkbox" name="boss" value="100" id="sami">朝謁
-                            <input type="checkbox" name="boss" value="10" id="hollow">混亂
-                            <br>
-                            <input type="checkbox" name="boss" value="200" id="gardener">思維矯正
-                            <input type="checkbox" name="boss" value="20" id="sentinal">混亂
-                            <br>
-                            <input type="checkbox" name="boss" value="400" id="sands">魂靈朝謁
-                            <input type="checkbox" name="boss" value="20" id="enter">混亂
-                            <br>
-                            <input type="checkbox" name="boss" value="200" id="twothree">授法
-                            <input type="checkbox" name="boss" value="20" id="all_boss">混亂
-                            <br>
-                            <input type="checkbox" name="boss" value="200">滾動先祖
+                            <label for="result"><h3>結局加分:</h3></label>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="checkbox" class="boss" id="icebox">
+                                    <label for="boss">緊急授課</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" class="boss" id="diff_icebox">
+                                    <label for="boss">混亂</label>
+                                </div>
+                            </div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="checkbox" class="boss" id="icebox">
+                                    <label for="boss">朝謁</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" class="boss" id="diff_icebox">
+                                    <label for="boss">混亂</label>
+                                </div>
+                            </div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="checkbox" class="boss" id="icebox">
+                                    <label for="boss">思維矯正</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" class="boss" id="diff_icebox">
+                                    <label for="boss">混亂</label>
+                                </div>
+                            </div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="checkbox" class="boss" id="icebox">
+                                    <label for="boss">魂靈朝謁</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" class="boss" id="diff_icebox">
+                                    <label for="boss">混亂</label>
+                                </div>
+                            </div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="checkbox" class="boss" id="icebox">
+                                    <label for="boss">授法</label>
+                                </div>
+                                <div class="input-group">
+                                    <input type="checkbox" class="boss" id="diff_icebox">
+                                    <label for="boss">混亂</label>
+                                </div>
+                            </div>
+                            <div class="input-row-grid">
+                                <div class="input-group">
+                                    <input type="checkbox" class="boss" id="icebox">
+                                    <label for="boss">滾動先祖</label>
+                                </div>
+                            </div>
                         </div>
                         <hr>
                         <div>
@@ -178,7 +324,7 @@
             </div>
             <!-- 最後得分 -->
             <div id="lastscore">
-                <h3>最後得分</h3>
+                <h2>最後得分</h2>
                 <div id="lastscore1"></div>
             </div>
         </div>
