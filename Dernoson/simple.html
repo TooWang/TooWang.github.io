@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>簡易報軸器</title>
+        <style>
+            html, body {
+                position: relative;
+                margin: 0;
+                padding: 0;
+                font-family: 'Segoe UI', Tahoma, 'Microsoft JhengHei', sans-serif;
+                background: #e8ecf1;
+                min-height: 100vh;
+            }
+            
+            .actions {
+                display: flex;
+                gap: 8px;
+                position: sticky;
+                top: 0;
+                background: #667eea;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                padding: 16px;
+                z-index: 100;
+                flex-wrap: wrap;
+            }
+            
+            .pad {
+                flex: 1;
+            }
+            
+            button {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 8px;
+                background: #ffffff;
+                color: #333;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                font-family: 'Segoe UI', Tahoma, 'Microsoft JhengHei', sans-serif;
+            }
+            
+            button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                background: #f0f0f0;
+            }
+            
+            button:active {
+                transform: translateY(0);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            
+            input[type="text"],
+            input[type="number"] {
+                padding: 10px 16px;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 14px;
+                transition: all 0.3s ease;
+                font-family: 'Segoe UI', Tahoma, 'Microsoft JhengHei', sans-serif;
+                background-color: white;
+            }
+            
+            input[type="text"]:focus,
+            input[type="number"]:focus {
+                outline: none;
+                border-color: #667eea;
+                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            }
+            
+            input[type="text"]::placeholder {
+                color: #999;
+            }
+            
+            #code {
+                min-width: 200px;
+            }
+            
+            .content {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                padding: 24px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            
+            .row {
+                padding: 16px 20px;
+                margin: 0;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+                line-height: 1.6;
+                font-size: 16px;
+            }
+            
+            .cost {
+                font-weight: bold;
+                color: #764ba2;
+                background: #ffe08a;
+                padding: 4px 12px;
+                border-radius: 6px;
+                display: inline-block;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            
+            .current {
+                background: #fff3cd;
+                border-left: 5px solid #e17055;
+                box-shadow: 0 4px 16px rgba(225, 112, 85, 0.3);
+                transform: scale(1.02);
+            }
+            
+            .row button {
+                padding: 6px 12px;
+                font-size: 13px;
+                margin: 0 4px;
+            }
+            
+            label {
+                font-weight: 600;
+                color: #555;
+                margin-right: 8px;
+            }
+            
+            /* 編輯模式樣式 */
+            .edit-container {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                padding: 4px;
+            }
+            
+            .edit-row {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+            
+            .edit-row label {
+                font-size: 14px;
+                min-width: 60px;
+            }
+            
+            .edit-row input[type="text"] {
+                flex: 1;
+                min-width: 200px;
+            }
+            
+            .edit-row input[type="number"] {
+                width: 100px;
+            }
+            
+            .edit-actions {
+                display: flex;
+                gap: 12px;
+                margin-top: 8px;
+            }
+            
+            .btn-save {
+                background: #00b894 !important;
+                color: white !important;
+                font-weight: bold;
+                padding: 10px 24px !important;
+            }
+            
+            .btn-save:hover {
+                background: #009d7f !important;
+            }
+            
+            .btn-cancel {
+                background: #ff7675 !important;
+                color: white !important;
+                font-weight: bold;
+                padding: 10px 24px !important;
+            }
+            
+            .btn-cancel:hover {
+                background: #e65c5c !important;
+            }
+            
+            .btn-edit {
+                background: #74b9ff !important;
+                color: white !important;
+                padding: 8px 16px !important;
+            }
+            
+            .btn-edit:hover {
+                background: #5da3e8 !important;
+            }
+            
+            .btn-add {
+                background: #55efc4 !important;
+                color: #2d3436 !important;
+                padding: 6px 14px !important;
+            }
+            
+            .btn-add:hover {
+                background: #3dd9ac !important;
+            }
+            
+            .btn-delete {
+                background: #fab1a0 !important;
+                color: white !important;
+                padding: 6px 14px !important;
+            }
+            
+            .btn-delete:hover {
+                background: #e89b8a !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="actions">
+            <button onclick="reset()">重設步數(R)</button>
+            <button onclick="prev()">上一步(A)</button>
+            <button onclick="next()">下一步(D)</button>
+            <button onclick="toggleEditMode()">編輯(Ctrl+E)</button>
+            <button onclick="addRow(content.length - 1)" id="addBtn" style="display: none;">➕ 新增行</button>
+            <div class="pad"></div>
+            <input type="text" id="code" placeholder="輸入軸表代碼" oninput="load(this.value)">
+            <button onclick="save()">存檔(Ctrl+S)</button>
+            <button onclick="exportMarkdown()">匯出 Markdown</button>
+        </div>
+        <div class="content">
+        </div>
+    </body>
+    <!-- LZ-String 壓縮庫 (內嵌版本，完全離線可用) -->
+    <script>
+        // LZ-String v1.5.0 - MIT License
+        var LZString=function(){function o(o,r){if(!t[o]){t[o]={};for(var n=0;n<o.length;n++)t[o][o.charAt(n)]=n}return t[o][r]}var r=String.fromCharCode,n="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",e="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-$",t={},i={compressToBase64:function(o){if(null==o)return"";var r=i._compress(o,6,function(o){return n.charAt(o)});switch(r.length%4){default:case 0:return r;case 1:return r+"===";case 2:return r+"==";case 3:return r+"="}},decompressFromBase64:function(r){return null==r?"":""==r?null:i._decompress(r.length,32,function(e){return o(n,r.charAt(e))})},compressToUTF16:function(o){return null==o?"":i._compress(o,15,function(o){return r(o+32)})+" "},decompressFromUTF16:function(o){return null==o?"":""==o?null:i._decompress(o.length,16384,function(r){return o.charCodeAt(r)-32})},compressToUint8Array:function(o){for(var r=i.compress(o),n=new Uint8Array(2*r.length),e=0,t=r.length;t>e;e++){var s=r.charCodeAt(e);n[2*e]=s>>>8,n[2*e+1]=s%256}return n},decompressFromUint8Array:function(o){if(null===o||void 0===o)return i.decompress(o);for(var n=new Array(o.length/2),e=0,t=n.length;t>e;e++)n[e]=256*o[2*e]+o[2*e+1];var s=[];return n.forEach(function(o){s.push(r(o))}),i.decompress(s.join(""))},compressToEncodedURIComponent:function(r){return null==r?"":i._compress(r,6,function(r){return e.charAt(r)})},decompressFromEncodedURIComponent:function(r){return null==r?"":""==r?null:(r=r.replace(/ /g,"+"),i._decompress(r.length,32,function(n){return o(e,r.charAt(n))}))},compress:function(o){return i._compress(o,16,function(o){return r(o)})},_compress:function(o,r,n){if(null==o)return"";var e,t,i,s={},p={},u="",c="",a="",l=2,f=3,h=2,d=[],m=0,v=0;for(i=0;i<o.length;i+=1)if(u=o.charAt(i),Object.prototype.hasOwnProperty.call(s,u)||(s[u]=f++,p[u]=!0),c=a+u,Object.prototype.hasOwnProperty.call(s,c))a=c;else{if(Object.prototype.hasOwnProperty.call(p,a)){if(a.charCodeAt(0)<256){for(e=0;h>e;e++)m<<=1,v==r-1?(v=0,d.push(n(m)),m=0):v++;for(t=a.charCodeAt(0),e=0;8>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1}else{for(t=1,e=0;h>e;e++)m=m<<1|t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t=0;for(t=a.charCodeAt(0),e=0;16>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1}l--,0==l&&(l=Math.pow(2,h),h++),delete p[a]}else for(t=s[a],e=0;h>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1;l--,0==l&&(l=Math.pow(2,h),h++),s[c]=f++,a=String(u)}if(""!==a){if(Object.prototype.hasOwnProperty.call(p,a)){if(a.charCodeAt(0)<256){for(e=0;h>e;e++)m<<=1,v==r-1?(v=0,d.push(n(m)),m=0):v++;for(t=a.charCodeAt(0),e=0;8>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1}else{for(t=1,e=0;h>e;e++)m=m<<1|t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t=0;for(t=a.charCodeAt(0),e=0;16>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1}l--,0==l&&(l=Math.pow(2,h),h++),delete p[a]}else for(t=s[a],e=0;h>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1;l--,0==l&&(l=Math.pow(2,h),h++)}for(t=2,e=0;h>e;e++)m=m<<1|1&t,v==r-1?(v=0,d.push(n(m)),m=0):v++,t>>=1;for(;;){if(m<<=1,v==r-1){d.push(n(m));break}v++}return d.join("")},decompress:function(o){return null==o?"":""==o?null:i._decompress(o.length,32768,function(r){return o.charCodeAt(r)})},_decompress:function(o,n,e){var t,i,s,p,u,c,a,l,f=[],h=4,d=4,m=3,v="",w=[],A={val:e(0),position:n,index:1};for(i=0;3>i;i+=1)f[i]=i;for(p=0,c=Math.pow(2,2),a=1;a!=c;)u=A.val&A.position,A.position>>=1,0==A.position&&(A.position=n,A.val=e(A.index++)),p|=(u>0?1:0)*a,a<<=1;switch(t=p){case 0:for(p=0,c=Math.pow(2,8),a=1;a!=c;)u=A.val&A.position,A.position>>=1,0==A.position&&(A.position=n,A.val=e(A.index++)),p|=(u>0?1:0)*a,a<<=1;l=r(p);break;case 1:for(p=0,c=Math.pow(2,16),a=1;a!=c;)u=A.val&A.position,A.position>>=1,0==A.position&&(A.position=n,A.val=e(A.index++)),p|=(u>0?1:0)*a,a<<=1;l=r(p);break;case 2:return""}for(f[3]=l,s=l,w.push(l);;){if(A.index>o)return"";for(p=0,c=Math.pow(2,m),a=1;a!=c;)u=A.val&A.position,A.position>>=1,0==A.position&&(A.position=n,A.val=e(A.index++)),p|=(u>0?1:0)*a,a<<=1;switch(l=p){case 0:for(p=0,c=Math.pow(2,8),a=1;a!=c;)u=A.val&A.position,A.position>>=1,0==A.position&&(A.position=n,A.val=e(A.index++)),p|=(u>0?1:0)*a,a<<=1;f[d++]=r(p),l=d-1,h--;break;case 1:for(p=0,c=Math.pow(2,16),a=1;a!=c;)u=A.val&A.position,A.position>>=1,0==A.position&&(A.position=n,A.val=e(A.index++)),p|=(u>0?1:0)*a,a<<=1;f[d++]=r(p),l=d-1,h--;break;case 2:return w.join("")}if(0==h&&(h=Math.pow(2,m),m++),f[l])v=f[l];else{if(l!==d)return null;v=s+s.charAt(0)}w.push(v),f[d++]=s+v.charAt(0),h--,s=v,0==h&&(h=Math.pow(2,m),m++)}}};return i}();"function"==typeof define&&define.amd?define(function(){return LZString}):"undefined"!=typeof module&&null!=module?module.exports=LZString:"undefined"!=typeof angular&&null!=angular&&angular.module("LZString",[]).factory("LZString",function(){return LZString});
+    </script>
+    <script>
+        let currentIndex = 0;
+        let editMode = false;
+        let editIndex = undefined;
+
+        let content = [
+            {
+                content: '報軸器，啟動！！！',
+            },
+            {
+                content: '部署阿米婭',
+                cost: 3,
+                suffix: '3幀',
+            },
+            {
+                content: '按下一步切到下一個動作'
+            },
+            {
+                content: '按存檔生成軸表代碼後，即可將軸表分享給他人'
+            },
+            {
+                content: '輸入軸表代碼即可重現軸表'
+            },
+        ];
+        
+        function reset() {
+            currentIndex = 0;
+            render();
+        }
+
+        function prev() {
+            if (currentIndex === 0) return;
+            currentIndex--;
+            render();
+        }
+
+        function next() {
+            if (currentIndex === content.length - 1) return;
+            currentIndex++;
+            render();
+        }
+
+        function toggleEditMode(){
+            editMode = !editMode;
+            editIndex = undefined;
+            render();
+        }
+        
+        function edit(index){
+            editIndex = index;
+            render();
+        }
+
+        function saveEdit(index){
+            const content_input = document.getElementById(`content-${index}`).value;
+            const cost_input = document.getElementById(`cost-${index}`).value;
+            const suffix_input = document.getElementById(`suffix-${index}`).value;
+            
+            content[index].content = content_input;
+            content[index].cost = cost_input === '' ? undefined : parseInt(cost_input);
+            content[index].suffix = suffix_input === '' ? undefined : suffix_input;
+            
+            editIndex = undefined;
+            render();
+        }
+
+        function cancelEdit(){
+            editIndex = undefined;
+            render();
+        }
+
+        function addRow(index){
+            const newRow = {
+                content: '新動作',
+            };
+            content.splice(index + 1, 0, newRow);
+            editIndex = undefined;
+            render();
+        }
+
+        function deleteRow(index){
+            if (content.length <= 1) {
+                alert('至少需要保留一行');
+                return;
+            }
+            if (confirm('確定要刪除這一行嗎？')) {
+                content.splice(index, 1);
+                // 調整 currentIndex 和 editIndex
+                if (currentIndex >= content.length) {
+                    currentIndex = content.length - 1;
+                }
+                editIndex = undefined;
+                render();
+            }
+        }
+
+        async function save(){
+            const contentStr = JSON.stringify(content);
+            // 使用 LZ-String 壓縮，大幅減少代碼長度
+            const code = LZString.compressToEncodedURIComponent(contentStr);
+            
+            try {
+                await navigator.clipboard.writeText(code);
+                alert('軸表代碼已複製到剪貼簿！\n直接分享給他人即可重現軸表。');
+            } catch (error) {
+                // 如果無法使用剪貼簿 API，則將代碼填入輸入框
+                const input = document.getElementById('code');
+                input.value = code;
+                input.select();
+                alert('軸表代碼已填入輸入框，請手動複製（已自動選取）。');
+            }
+        }
+
+        function load(code){
+            if (!code || code.trim() === '') {
+                return;
+            }
+            
+            try {
+                let decoded;
+                
+                // 先嘗試使用 LZ-String 解壓縮（新格式）
+                try {
+                    decoded = LZString.decompressFromEncodedURIComponent(code);
+                    if (!decoded) {
+                        throw new Error('LZ-String 解壓失敗');
+                    }
+                } catch (lzError) {
+                    // 如果 LZ-String 解壓失敗，嘗試舊的 base64 格式（向後相容）
+                    decoded = decodeURIComponent(escape(atob(code)));
+                }
+                
+                const newContent = JSON.parse(decoded);
+                content = newContent;
+                reset();
+            } catch (error) {
+                alert('代碼無效或格式錯誤');
+            }
+        }
+
+        function exportMarkdown(){
+            // 取得當前日期時間
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            const dateTimeStr = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            const timestamp = now.toISOString().replace(/[:.]/g, '-').slice(0, -5);
+            
+            // 將 content 轉換為 Markdown 格式，標題包含時間
+            let markdown = `# 軸表 ${dateTimeStr}\n\n`;
+            
+            content.forEach((item, index) => {
+                const totalCost = item.cost !== undefined ? item.cost : '';
+                const costSuffix = item.suffix ?? '';
+                const costText = (totalCost || costSuffix) ? `**${totalCost}費用${costSuffix}**，` : '';
+                
+                markdown += `${index + 1}. ${costText}${item.content}\n`;
+            });
+            
+            // 建立 Blob 物件
+            const blob = new Blob([markdown], { type: 'text/markdown;charset=utf-8' });
+            
+            // 建立下載連結
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `軸表_${timestamp}.md`;
+            
+            // 觸發下載
+            document.body.appendChild(link);
+            link.click();
+            
+            // 清理
+            document.body.removeChild(link);
+            URL.revokeObjectURL(link.href);
+        }
+        
+        function render() {
+            // 控制新增按鈕顯示/隱藏
+            const addBtn = document.getElementById('addBtn');
+            if (addBtn) {
+                addBtn.style.display = editMode ? 'inline-block' : 'none';
+            }
+            
+            document.querySelector('.content').innerHTML = content
+                .map((item, index) => {
+                    const isCurrent = index === currentIndex;
+                    const isEditing = index === editIndex;
+                    const totalCost = item.cost === undefined ? '' : item.cost;
+                    const costSuffix = item.suffix ?? '';
+                    
+                    if (isEditing) {
+                        return `
+                            <div class="row ${isCurrent ? 'current' : ''}">
+                                <div class="edit-container">
+                                    <div class="edit-row">
+                                        <label>${index + 1}. 內容：</label>
+                                        <input type="text" id="content-${index}" value="${item.content}">
+                                    </div>
+                                    <div class="edit-row">
+                                        <label>費用：</label>
+                                        <input type="number" id="cost-${index}" value="${item.cost ?? ''}" placeholder="選填">
+                                        <label>後綴：</label>
+                                        <input type="text" id="suffix-${index}" value="${item.suffix ?? ''}" placeholder="例如：3幀">
+                                    </div>
+                                    <div class="edit-actions">
+                                        <button class="btn-save" onclick="saveEdit(${index})">✓ 儲存</button>
+                                        <button class="btn-cancel" onclick="cancelEdit()">✗ 取消</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    
+                    return `
+                        <p class="row ${isCurrent ? 'current' : ''}">
+                            ${editMode ? `<button class="btn-edit" onclick="edit(${index})">✎ 編輯</button>` : isCurrent ? '▶️' : '⬜'}
+                            ${index + 1}.&emsp;
+                            ${totalCost || costSuffix ? `<span class="cost">${totalCost + '費用' + costSuffix}</span>，` : ''}
+                            ${item.content}
+                            ${editMode ? `&emsp;<button class="btn-add" onclick="addRow(${index})">➕ 新增</button><button class="btn-delete" onclick="deleteRow(${index})">🗑️ 刪除</button>` : ''}
+                        </p>
+                    `;
+                    })
+                .join('');
+        }
+        
+        // 監聽鍵盤快捷鍵
+        document.addEventListener('keydown', function(event) {
+            // 偵測到 Ctrl+S 或 Cmd+S，執行存檔
+            if ((event.ctrlKey || event.metaKey) && event.key === 's') {
+                event.preventDefault(); // 防止瀏覽器預設的儲存行為
+                save();
+            }
+
+            // 偵測到方向右鍵、方向下鍵、D 鍵，切換到下一步
+            if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === 'd') {
+                if (editMode) return;
+                event.preventDefault();
+                next();
+            }
+
+            // 偵測到方向左鍵、方向上鍵、A 鍵，切換到上一步
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.key === 'a') {
+                if (editMode) return;
+                event.preventDefault();
+                prev();
+            }
+
+            // 偵測到 R 鍵，重置步數
+            if (event.key === 'r') {
+                if (editMode) return;
+                event.preventDefault();
+                reset();
+            }
+
+            // 偵測到 Ctrl+E 或 Cmd+E，切換到編輯模式
+            if ((event.ctrlKey || event.metaKey) && event.key === 'e') {
+                event.preventDefault();
+                toggleEditMode();
+            }
+        });
+        
+        render();
+    </script>
+</html>
